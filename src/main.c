@@ -7,13 +7,13 @@
 #include <util/delay.h>
 
 int main(void) {
-  DDRB |= 0x01;
+  DDRB |= _BV(5);
 
   while(1) {
-    PORTB = 0x01;
+    PORTB |= _BV(5);
     _delay_ms(500);
 
-    PORTB = 0x00;
+    PORTB &= ~_BV(5);
     _delay_ms(500);
   }
 

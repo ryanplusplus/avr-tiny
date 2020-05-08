@@ -2,11 +2,15 @@ TARGET := tiny
 BUILD_DIR := ./build
 
 MCU := atmega328p
-PROGRAMMER_TYPE := usbtiny
+PROGRAMMER_TYPE := dragon_isp
 PROGRAMMER_ARGS :=
 
+EFUSE := 0xFD
+HFUSE := 0xD6
+LFUSE := 0xE2
+
 DEFINES := \
-  F_CPU=1000000UL \
+  F_CPU=8000000UL \
 
 SRC_FILES := \
 

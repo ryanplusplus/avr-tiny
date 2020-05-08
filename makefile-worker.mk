@@ -46,6 +46,20 @@ AR      := avr-ar
 OBJCOPY := avr-objcopy
 SIZE    := avr-size
 
+FUSES :=
+
+ifneq ($(EFUSE),)
+FUSES += -U efuse:w:$(EFUSE):m
+endif
+
+ifneq ($(HFUSE),)
+FUSES += -U hfuse:w:$(HFUSE):m
+endif
+
+ifneq ($(LFUSE),)
+FUSES += -U lfuse:w:$(LFUSE):m
+endif
+
 .PHONY: all
 all: $(BUILD_DIR)/$(TARGET).elf $(BUILD_DIR)/$(TARGET).hex
 	@echo
@@ -56,7 +70,7 @@ debug-deps: $(BUILD_DIR)/$(TARGET).elf $(BUILD_DIR)/openocd.cfg
 
 .PHONY: upload
 upload: $(BUILD_DIR)/$(TARGET).hex
-	@avrdude -c $(PROGRAMMER_TYPE) -p $(MCU) $(PROGRAMMER_ARGS) -U flash:w:$<
+	@avrdude -c $(PROGRAMMER_TYPE) -p $(MCU) $(PROGRAMMER_ARGS) $(FUSES) -U flash:w:$<
 
 .PHONY: erase
 erase:
