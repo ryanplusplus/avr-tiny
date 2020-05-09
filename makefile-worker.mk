@@ -76,6 +76,10 @@ upload: $(BUILD_DIR)/$(TARGET).hex
 erase:
 	@avrdude -c $(PROGRAMMER_TYPE) -p $(MCU) $(PROGRAMMER_ARGS) -e
 
+.PHONY: install_toolchain
+install_toolchain:
+	sudo apt-get install gcc-avr binutils-avr gdb-avr avr-libc avrdude
+
 $(BUILD_DIR)/$(TARGET).elf: $(OBJS) $(BUILD_DIR)/$(TARGET).lib
 	@echo Linking $(notdir $@)...
 	@$(MKDIR_P) $(dir $@)

@@ -1,11 +1,12 @@
 {
   "[c]": {
     "editor.tabSize": 2,
-    "editor.insertSpaces": true
+    "editor.insertSpaces": true,
   },
   "[cpp]": {
     "editor.tabSize": 2,
     "editor.insertSpaces": true
   },
+  "C_Cpp.default.compilerPath": "/usr/bin/avr-gcc",
   "editor.formatOnSave": true
 }
