@@ -5,7 +5,7 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Target",
+      "name": "Target (avarice)",
       "type": "cortex-debug",
       "cwd": "${workspaceRoot}",
       "executable": "./build/tiny.elf",
@@ -14,9 +14,29 @@
       "configFiles": [
         ""
       ],
-      "serverpath": "./build/debug-server",
+      "serverpath": "./build/debug-server-avarice",
       "toolchainPrefix": "avr",
-      "preLaunchTask": "debug-deps"
+      "preLaunchTask": "debug-deps",
+      "runToMain": true
+    },
+    {
+      "name": "Target (dwdebug)",
+      "type": "cortex-debug",
+      "cwd": "${workspaceRoot}",
+      "executable": "./build/tiny.elf",
+      "request": "launch",
+      "servertype": "openocd",
+      "configFiles": [
+        ""
+      ],
+      "serverpath": "./build/debug-server-dwdebug",
+      "overrideLaunchCommands": [
+        "file ./build/tiny.elf",
+        "load"
+      ],
+      "toolchainPrefix": "avr",
+      "preLaunchTask": "debug-deps",
+      "runToMain": true
     }
   ]
 }

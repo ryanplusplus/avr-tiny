@@ -1,3 +1,6 @@
+worker_path := $(dir $(realpath $(lastword $(MAKEFILE_LIST))))
+tools_path := $(worker_path)tools/$(shell uname)
+
 SRCS := $(SRC_FILES)
 
 ifneq ($(SRC_DIRS),)
@@ -65,15 +68,21 @@ all: $(BUILD_DIR)/$(TARGET).elf $(BUILD_DIR)/$(TARGET).hex
 	@echo
 	@$(SIZE) -C --mcu=$(MCU) $<
 
-.PHONY: $(BUILD_DIR)/debug-server
-$(BUILD_DIR)/debug-server:
+.PHONY: $(BUILD_DIR)/debug-server-avarice
+$(BUILD_DIR)/debug-server-avarice:
 	@echo "#!/bin/bash" > $@
 	@echo "PORT=\`echo \"'\$$*'\" | sed 's/.*gdb_port \([^ ]*\).*/\\\1/'\`" >> $@
 	@echo "avarice -g -w :\$$PORT" >> $@
 	@chmod +x $@
 
+.PHONY: $(BUILD_DIR)/debug-server-dwdebug
+$(BUILD_DIR)/debug-server-dwdebug:
+	@echo "#!/bin/bash" > $@
+	@echo "$(tools_path)/dwdebug verbose,gdbserver,device $(DWDEBUG_TOOL)" >> $@
+	@chmod +x $@
+
 .PHONY: debug-deps
-debug-deps: $(BUILD_DIR)/debug-server
+debug-deps: $(BUILD_DIR)/debug-server-avarice $(BUILD_DIR)/debug-server-dwdebug $(BUILD_DIR)/$(TARGET).hex
 
 .PHONY: upload
 upload: $(BUILD_DIR)/$(TARGET).hex

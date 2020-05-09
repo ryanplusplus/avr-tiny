@@ -4,6 +4,7 @@ BUILD_DIR := ./build
 MCU := atmega328p
 PROGRAMMER_TYPE := dragon_isp
 PROGRAMMER_ARGS :=
+DWDEBUG_TOOL := ttyUSB0
 
 EFUSE := 0xFD
 HFUSE := 0x9E
