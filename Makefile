@@ -6,7 +6,7 @@ PROGRAMMER_TYPE := dragon_isp
 PROGRAMMER_ARGS :=
 
 EFUSE := 0xFD
-HFUSE := 0xDE
+HFUSE := 0x9E
 LFUSE := 0xE2
 
 DEFINES := \

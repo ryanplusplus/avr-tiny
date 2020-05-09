@@ -65,8 +65,15 @@ all: $(BUILD_DIR)/$(TARGET).elf $(BUILD_DIR)/$(TARGET).hex
 	@echo
 	@$(SIZE) -C --mcu=$(MCU) $<
 
+.PHONY: $(BUILD_DIR)/debug-server
+$(BUILD_DIR)/debug-server:
+	@echo "#!/bin/bash" > $@
+	@echo "PORT=\`echo \"'\$$*'\" | sed 's/.*gdb_port \([^ ]*\).*/\\\1/'\`" >> $@
+	@echo "avarice -g -w :\$$PORT" >> $@
+	@chmod +x $@
+
 .PHONY: debug-deps
-debug-deps: $(BUILD_DIR)/$(TARGET).elf $(BUILD_DIR)/openocd.cfg
+debug-deps: $(BUILD_DIR)/debug-server
 
 .PHONY: upload
 upload: $(BUILD_DIR)/$(TARGET).hex
