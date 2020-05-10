@@ -3,19 +3,34 @@
  * @brief
  */
 
-#include <avr/io.h>
-#include <util/delay.h>
+#include <stddef.h>
+#include <avr/interrupt.h>
+#include "timer0_system_tick.h"
+#include "pb5_heartbeat.h"
+#include "tiny_timer.h"
+#include "watchdog.h"
 
-int main(void) {
-  DDRB |= _BV(5);
+static tiny_timer_group_t timer_group;
+static tiny_timer_t timer;
 
-  while(1) {
-    PORTB |= _BV(5);
-    _delay_ms(500);
+static void kick_watchdog(tiny_timer_group_t* timer_group, void* context) {
+  (void)context;
+  watchdog_kick();
+  tiny_timer_start(timer_group, &timer, 50, kick_watchdog, NULL);
+}
 
-    PORTB &= ~_BV(5);
-    _delay_ms(500);
+void main(void) {
+  cli();
+  {
+    watchdog_init(WDTO_250MS);
+    tiny_timer_group_init(&timer_group, timer0_system_tick_init());
+    pb5_heartbeat_init(&timer_group);
   }
+  sei();
 
-  return 0;
+  kick_watchdog(&timer_group, NULL);
+
+  while(true) {
+    tiny_timer_group_run(&timer_group);
+  }
 }

@@ -2,8 +2,11 @@ TARGET := tiny
 BUILD_DIR := ./build
 
 MCU := atmega328p
-PROGRAMMER_TYPE := dragon_isp
-PROGRAMMER_ARGS :=
+
+ # dwdebug or avrdude
+UPLOAD_TYPE := dwdebug
+AVRDUDE_PROGRAMMER_TYPE := dragon_isp
+AVRDUDE_PROGRAMMER_ARGS :=
 DWDEBUG_TOOL := ttyUSB0
 
 EFUSE := 0xFD

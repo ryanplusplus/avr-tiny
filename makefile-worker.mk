@@ -1,5 +1,6 @@
 worker_path := $(dir $(realpath $(lastword $(MAKEFILE_LIST))))
 tools_path := $(worker_path)tools/$(shell uname)
+dwdebug_path := $(tools_path)/dwdebug
 
 SRCS := $(SRC_FILES)
 
@@ -78,23 +79,31 @@ $(BUILD_DIR)/debug-server-avarice:
 .PHONY: $(BUILD_DIR)/debug-server-dwdebug
 $(BUILD_DIR)/debug-server-dwdebug:
 	@echo "#!/bin/bash" > $@
-	@echo "$(tools_path)/dwdebug verbose,gdbserver,device $(DWDEBUG_TOOL)" >> $@
+	@echo "$(dwdebug_path) verbose,gdbserver,device $(DWDEBUG_TOOL)" >> $@
 	@chmod +x $@
 
 .PHONY: debug-deps
 debug-deps: $(BUILD_DIR)/debug-server-avarice $(BUILD_DIR)/debug-server-dwdebug $(BUILD_DIR)/$(TARGET).hex
 
+ifeq ($(UPLOAD_TYPE),avrdude)
 .PHONY: upload
 upload: $(BUILD_DIR)/$(TARGET).hex
-	@avrdude -c $(PROGRAMMER_TYPE) -p $(MCU) $(PROGRAMMER_ARGS) $(FUSES) -U flash:w:$<
+	@avrdude -c $(AVRDUDE_PROGRAMMER_TYPE) -p $(MCU) $(AVRDUDE_PROGRAMMER_ARGS) $(FUSES) -U flash:w:$<
 
 .PHONY: erase
 erase:
-	@avrdude -c $(PROGRAMMER_TYPE) -p $(MCU) $(PROGRAMMER_ARGS) -e
+	@avrdude -c $(AVRDUDE_PROGRAMMER_TYPE) -p $(MCU) $(AVRDUDE_PROGRAMMER_ARGS) -e
+endif
+
+ifeq ($(UPLOAD_TYPE),dwdebug)
+.PHONY: upload
+upload: $(BUILD_DIR)/$(TARGET).elf
+	@$(dwdebug_path) device $(DWDEBUG_TOOL),l $<,qr
+endif
 
 .PHONY: install_toolchain
 install_toolchain:
-	sudo apt-get install gcc-avr binutils-avr gdb-avr avr-libc avrdude
+	sudo apt-get install gcc-avr binutils-avr gdb-avr avr-libc avrdude avarice
 
 $(BUILD_DIR)/$(TARGET).elf: $(OBJS) $(BUILD_DIR)/$(TARGET).lib
 	@echo Linking $(notdir $@)...
