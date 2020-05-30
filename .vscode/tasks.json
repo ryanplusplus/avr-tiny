@@ -6,7 +6,7 @@
     {
       "label": "debug-deps",
       "type": "shell",
-      "command": "make debug-deps",
+      "command": "make -f target.mk debug-deps",
       "presentation": {
         "echo": true,
         "reveal": "silent",

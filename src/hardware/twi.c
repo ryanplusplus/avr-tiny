@@ -52,7 +52,6 @@ static inline void start(void) {
 
 static inline void stop(void) {
   TWCR = _BV(TWINT) | _BV(TWEN) | _BV(TWSTO);
-  wait_for_complete();
 }
 
 static inline uint8_t read_byte_ack(void) {

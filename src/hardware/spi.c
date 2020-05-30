@@ -34,12 +34,12 @@ i_tiny_spi_t* spi_init(
   // Set SS, MOSI, and SCK as outputs
   // SS must be configured as an output to make sure that
   // the SPI peripheral doesn't switch to slave mode
-  SPI_DDR |= _bv(SS) | _bv(MOSI) | _bv(SCK);
+  SPI_DDR |= _BV(SS) | _BV(MOSI) | _BV(SCK);
 
   // Enable SPI in master mode, set CPOL and CPHA, set bit
   // order, and set SPR0/1 to (partially) configure SCK
   // frequency
-  SPCR = _bv(SPE) | _bv(MSTR) | (cpol << CPOL) | (cpha << CPHA) | (!msb_first << DORD) | (baud & 0x03);
+  SPCR = _BV(SPE) | _BV(MSTR) | (cpol << CPOL) | (cpha << CPHA) | (!msb_first << DORD) | (baud & 0x03);
 
   // Set SPI2X based on the configured baud to finish
   // configuring SCK frequency
