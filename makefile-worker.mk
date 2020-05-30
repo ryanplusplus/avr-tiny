@@ -1,6 +1,7 @@
 worker_path := $(dir $(realpath $(lastword $(MAKEFILE_LIST))))
 tools_path := $(worker_path)tools/$(shell uname)
 dwdebug_path := $(tools_path)/dwdebug
+docs_mk_path := $(worker_path)docs.mk
 
 SRCS := $(SRC_FILES)
 
@@ -107,27 +108,27 @@ install_toolchain:
 
 $(BUILD_DIR)/$(TARGET).elf: $(OBJS) $(BUILD_DIR)/$(TARGET).lib
 	@echo Linking $(notdir $@)...
-	@$(MKDIR_P) $(dir $@)
+	@mkdir -p $(dir $@)
 	@$(LD) $(OBJS) -mmcu=$(MCU) -Wl,-Og -Wl,--gc-sections -Wl,--start-group $(BUILD_DIR)/$(TARGET).lib -Wl,--end-group -o $@ -Wl,-Map=$(BUILD_DIR)/$(TARGET).map
 
 $(BUILD_DIR)/$(TARGET).hex: $(BUILD_DIR)/$(TARGET).elf
 	@echo Creating $(notdir $@)...
-	@$(MKDIR_P) $(dir $@)
+	@mkdir -p $(dir $@)
 	@$(OBJCOPY) -O ihex $< $@
 
 $(BUILD_DIR)/$(TARGET).lib: $(LIB_OBJS)
 	@echo Building $(notdir $@)...
-	@$(MKDIR_P) $(dir $@)
+	@mkdir -p $(dir $@)
 	@$(AR) rcs $@ $^
 
 $(BUILD_DIR)/%.s.o: %.s
 	@echo Assembling $(notdir $@)...
-	@$(MKDIR_P) $(dir $@)
+	@mkdir -p $(dir $@)
 	@$(AS) -g2 -mmcu=$(MCU) $< $(INC_FLAGS) -o $@
 
 $(BUILD_DIR)/%.c.o: %.c
 	@echo Compiling $(notdir $@)...
-	@$(MKDIR_P) $(dir $@)
+	@mkdir -p $(dir $@)
 	@$(CC) -MM -MP -MF "$(@:%.o=%.d)" -MT "$(@)" $(CFLAGS) -E $<
 	@$(CC) -x c -g -g2 -Os $(CFLAGS) -mmcu=$(MCU) -std=c99 -c $< -o $@
 
@@ -136,6 +137,6 @@ clean:
 	@echo Cleaning...
 	@$(RM) -rf $(BUILD_DIR)
 
-MKDIR_P ?= mkdir -p
+include $(docs_mk_path)
 
 -include $(DEPS) $(LIB_DEPS)
