@@ -6,7 +6,7 @@
 #ifndef twi_h
 #define twi_h
 
-#include <hal/i_tiny_i2c.h>
+#include "hal/i_tiny_i2c.h"
 
 i_tiny_i2c_t* twi_init(void);
 
