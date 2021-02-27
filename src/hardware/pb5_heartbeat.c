@@ -16,14 +16,13 @@ static tiny_timer_t timer;
 
 static void blink(tiny_timer_group_t* group, void* context)
 {
+  (void)group;
   (void)context;
   PINB |= pin_5;
-  tiny_timer_start(group, &timer, half_period_in_msec, blink, NULL);
 }
 
 void pb5_heartbeat_init(tiny_timer_group_t* timer_group)
 {
   DDRB |= pin_5;
-
-  blink(timer_group, NULL);
+  tiny_timer_start_periodic(timer_group, &timer, half_period_in_msec, blink, NULL);
 }
