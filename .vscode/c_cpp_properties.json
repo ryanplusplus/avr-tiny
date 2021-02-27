@@ -20,7 +20,7 @@
       ],
       "compilerPath": "/usr/bin/avr-gcc",
       "includePath": [
-        "${workspaceFolder}/pack/include",
+        "${workspaceFolder}/dfp/Atmel.ATmega_DFP.1.6.364/include",
         "${workspaceFolder}/**"
       ],
       "intelliSenseMode": "gcc-x64",

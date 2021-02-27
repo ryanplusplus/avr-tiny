@@ -31,7 +31,7 @@ DEFINE_FLAGS := $(addprefix -D,$(DEFINES))
 CFLAGS += \
   $(INC_FLAGS) \
   $(DEFINE_FLAGS) \
-  -Bpack/dev/$(MCU) \
+  -Bdfp/$(PACK)/gcc/dev/$(MCU) \
   -fno-exceptions \
   -fdata-sections \
   -ffunction-sections \
@@ -110,7 +110,7 @@ install_toolchain:
 $(BUILD_DIR)/$(TARGET).elf: $(OBJS) $(BUILD_DIR)/$(TARGET).lib
 	@echo Linking $(notdir $@)...
 	@mkdir -p $(dir $@)
-	$(LD) $(OBJS) -Bpack/dev/$(MCU) -mmcu=$(MCU) -Wl,-Og -Wl,--gc-sections -Wl,--start-group $(BUILD_DIR)/$(TARGET).lib -Wl,--end-group -o $@ -Wl,-Map=$(BUILD_DIR)/$(TARGET).map
+	$(LD) $(OBJS) -Bdfp/$(PACK)/gcc/dev/$(MCU) -mmcu=$(MCU) -Wl,-Og -Wl,--gc-sections -Wl,--start-group $(BUILD_DIR)/$(TARGET).lib -Wl,--end-group -o $@ -Wl,-Map=$(BUILD_DIR)/$(TARGET).map
 
 $(BUILD_DIR)/$(TARGET).hex: $(BUILD_DIR)/$(TARGET).elf
 	@echo Creating $(notdir $@)...

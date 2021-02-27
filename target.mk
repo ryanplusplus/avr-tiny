@@ -3,6 +3,8 @@ BUILD_DIR := ./build
 
 MCU := atmega4809
 
+PACK := Atmel.ATmega_DFP.1.6.364
+
 # dwdebug or avrdude
 UPLOAD_TYPE := dwdebug
 AVRDUDE_PROGRAMMER_TYPE := dragon_isp
@@ -29,6 +31,18 @@ LIB_DIRS := \
 
 INC_DIRS := \
   lib/tiny/include \
-  pack/include \
+  dfp/$(PACK)/include \
+
 
 include makefile-worker.mk
+
+.PHONY: dfp
+dfp: dfp/$(PACK)/package.content
+
+dfp/$(PACK)/package.content: dfp/download/$(PACK).atpack
+	@unzip dfp/download/$(PACK).atpack -d dfp/$(PACK)
+	@touch $@
+
+dfp/download/$(PACK).atpack:
+	@mkdir -p $(dir $@)
+	@cd $(dir $@) && wget http://packs.download.atmel.com/$(PACK).atpack
