@@ -8,6 +8,11 @@ HARDWARE_MANUAL_URL := http://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-258
 DATASHEET_URL := http://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-2586-AVR-8-bit-Microcontroller-ATtiny25-ATtiny45-ATtiny85_Datasheet.pdf
 endif
 
+ifeq ($(MCU),atmega4809)
+HARDWARE_MANUAL_URL := https://ww1.microchip.com/downloads/en/DeviceDoc/ATmega4808-09-DataSheet-DS40002173B.pdf
+DATASHEET_URL := https://ww1.microchip.com/downloads/en/DeviceDoc/ATmega4808-09-DataSheet-DS40002173B.pdf
+endif
+
 ifneq ($(HARDWARE_MANUAL_URL),)
 .PHONY: hardware_manual
 hardware_manual:
