@@ -19,6 +19,8 @@ LFUSE := 0xE2
 DEFINES := \
 	F_CPU=3333333UL \
 
+include tools/avr-gcc-tools/defaults.mk
+
 SRC_FILES := \
 
 SRC_DIRS := \
@@ -31,18 +33,5 @@ LIB_DIRS := \
 
 INC_DIRS := \
   lib/tiny/include \
-  dfp/$(PACK)/include \
 
-
-include makefile-worker.mk
-
-.PHONY: dfp
-dfp: dfp/$(PACK)/package.content
-
-dfp/$(PACK)/package.content: dfp/download/$(PACK).atpack
-	@unzip dfp/download/$(PACK).atpack -d dfp/$(PACK)
-	@touch $@
-
-dfp/download/$(PACK).atpack:
-	@mkdir -p $(dir $@)
-	@cd $(dir $@) && wget http://packs.download.atmel.com/$(PACK).atpack
+include tools/avr-gcc-tools/tools.mk

@@ -8,10 +8,7 @@
 #include <avr/io.h>
 #include <util/delay.h>
 
-#ifdef __AVR_DEV_LIB_NAME__
-#endif
-
-void main(void) {
+int main(void) {
   PORTF.DIRSET = PIN5_bm;
 
   while(1) {
