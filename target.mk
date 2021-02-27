@@ -3,7 +3,7 @@ BUILD_DIR := ./build
 
 MCU := atmega328p
 
- # dwdebug or avrdude
+# dwdebug or avrdude
 UPLOAD_TYPE := dwdebug
 AVRDUDE_PROGRAMMER_TYPE := dragon_isp
 AVRDUDE_PROGRAMMER_ARGS :=
