@@ -1,9 +1,9 @@
 TARGET := tiny
 BUILD_DIR := ./build
 
-MCU := atmega4809
+MCU := atmega328p
 
-PACK := Atmel.ATmega_DFP.1.6.364
+DEVICE_PACK := Atmel.ATmega_DFP.1.6.364
 
 # dwdebug or avrdude
 UPLOAD_TYPE := dwdebug
@@ -17,21 +17,20 @@ HFUSE := 0x9E
 LFUSE := 0xE2
 
 DEFINES := \
-	F_CPU=3333333UL \
+	F_CPU=8000000UL \
 
 include tools/avr-gcc-tools/defaults.mk
+
+INC_DIRS := \
+
+SYS_INC_DIRS := \
 
 SRC_FILES := \
 
 SRC_DIRS := \
   src \
+  src/hardware \
 
-LIB_FILES := \
-
-LIB_DIRS := \
-  lib/tiny/src \
-
-INC_DIRS := \
-  lib/tiny/include \
+include lib_tiny.mk
 
 include tools/avr-gcc-tools/tools.mk

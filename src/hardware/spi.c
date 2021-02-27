@@ -16,11 +16,15 @@ static void transfer(
   i_tiny_spi_t* self,
   const uint8_t* write_buffer,
   uint8_t* read_buffer,
-  uint16_t buffer_size) {
+  uint16_t buffer_size)
+{
+  (void)self;
+
   for(uint16_t i = 0; i < buffer_size; i++) {
     SPDR = write_buffer ? write_buffer[i] : 0x00;
     loop_until_bit_is_set(SPSR, SPIF);
-    if(read_buffer) read_buffer[i] = SPDR;
+    if(read_buffer)
+      read_buffer[i] = SPDR;
   }
 }
 
@@ -30,7 +34,8 @@ i_tiny_spi_t* spi_init(
   uint8_t cpol,
   uint8_t cpha,
   bool msb_first,
-  spi_baud_t baud) {
+  spi_baud_t baud)
+{
   // Set SS, MOSI, and SCK as outputs
   // SS must be configured as an output to make sure that
   // the SPI peripheral doesn't switch to slave mode

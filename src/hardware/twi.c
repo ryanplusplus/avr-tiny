@@ -20,7 +20,8 @@ enum {
   status_read_byte_nacked = 0x58
 };
 
-static inline uint8_t status(void) {
+static inline uint8_t status(void)
+{
   return TWSR & 0xFC;
 }
 
@@ -41,38 +42,47 @@ static inline uint8_t status(void) {
     }                                                   \
   } while(0)
 
-static inline void wait_for_complete(void) {
+static inline void wait_for_complete(void)
+{
   loop_until_bit_is_set(TWCR, TWINT);
 }
 
-static inline void start(void) {
+static inline void start(void)
+{
   TWCR = _BV(TWINT) | _BV(TWEN) | _BV(TWSTA);
   wait_for_complete();
 }
 
-static inline void stop(void) {
+static inline void stop(void)
+{
   TWCR = _BV(TWINT) | _BV(TWEN) | _BV(TWSTO);
 }
 
-static inline uint8_t read_byte_ack(void) {
+static inline uint8_t read_byte_ack(void)
+{
   TWCR = _BV(TWINT) | _BV(TWEN) | _BV(TWEA);
   wait_for_complete();
   return TWDR;
 }
 
-static inline uint8_t read_byte_nack(void) {
+static inline uint8_t read_byte_nack(void)
+{
   TWCR = _BV(TWINT) | _BV(TWEN);
   wait_for_complete();
   return TWDR;
 }
 
-static inline void write_byte(uint8_t byte) {
+static inline void write_byte(uint8_t byte)
+{
   TWDR = byte;
   TWCR = _BV(TWINT) | _BV(TWEN);
   wait_for_complete();
 }
 
-static void reset(i_tiny_i2c_t* self) {
+static void reset(i_tiny_i2c_t* self)
+{
+  (void)self;
+
   // Disable peripheral
   TWCR &= ~_BV(TWEN);
 
@@ -89,7 +99,10 @@ static bool write(
   uint8_t address,
   bool prepare_for_restart,
   const uint8_t* buffer,
-  uint16_t buffer_size) {
+  uint16_t buffer_size)
+{
+  (void)self;
+
   start();
   assert_status_or(status_start_transmitted, status_restart_transmitted);
 
@@ -113,7 +126,10 @@ static bool read(
   uint8_t address,
   bool prepare_for_restart,
   uint8_t* buffer,
-  uint16_t buffer_size) {
+  uint16_t buffer_size)
+{
+  (void)self;
+
   start();
   assert_status_or(status_start_transmitted, status_restart_transmitted);
 
@@ -140,7 +156,8 @@ static bool read(
 
 static const i_tiny_i2c_api_t api = { write, read, reset };
 
-i_tiny_i2c_t* twi_init(void) {
+i_tiny_i2c_t* twi_init(void)
+{
   reset(NULL);
 
   static i_tiny_i2c_t self;
