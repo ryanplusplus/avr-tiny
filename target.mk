@@ -11,12 +11,13 @@ AVRDUDE_PROGRAMMER_TYPE := dragon_isp
 AVRDUDE_PROGRAMMER_ARGS :=
 DWDEBUG_TOOL := ttyUSB0
 
-EFUSE := 0xFD
-HFUSE := 0x9E
-LFUSE := 0xE2
+FUSES := \
+  efuse=0xFD \
+  hfuse=0x9E \
+  lfuse=0xE2 \
 
 DEFINES := \
-	F_CPU=8000000UL \
+  F_CPU=8000000UL \
 
 include tools/defaults.mk
 
