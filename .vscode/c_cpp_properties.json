@@ -12,6 +12,20 @@
       "intelliSenseMode": "gcc-x64",
       "cStandard": "c11",
       "cppStandard": "c++17"
+    },
+    {
+      "name": "ATmega4809",
+      "defines": [
+        "__AVR_DEV_LIB_NAME__=m4809"
+      ],
+      "compilerPath": "/usr/bin/avr-gcc",
+      "includePath": [
+        "${workspaceFolder}/pack/include",
+        "${workspaceFolder}/**"
+      ],
+      "intelliSenseMode": "gcc-x64",
+      "cStandard": "c11",
+      "cppStandard": "c++17"
     }
   ],
   "version": 4

@@ -6,13 +6,13 @@ docs_mk_path := $(worker_path)docs.mk
 SRCS := $(SRC_FILES)
 
 ifneq ($(SRC_DIRS),)
-SRCS += $(shell find $(SRC_DIRS) -name *.c -or -name *.s -or -name *.S)
+SRCS += $(shell find $(SRC_DIRS) -maxdepth 1 -name *.c -or -name *.s -or -name *.S)
 endif
 
 LIB_SRCS := $(LIB_FILES)
 
 ifneq ($(LIB_DIRS),)
-LIB_SRCS += $(shell find $(LIB_DIRS) -name *.c -or -name *.s -or -name *.S)
+LIB_SRCS += $(shell find $(LIB_DIRS) -maxdepth 1 -name *.c -or -name *.s -or -name *.S)
 endif
 
 OBJS := $(SRCS:%=$(BUILD_DIR)/%.o)
@@ -31,6 +31,7 @@ DEFINE_FLAGS := $(addprefix -D,$(DEFINES))
 CFLAGS += \
   $(INC_FLAGS) \
   $(DEFINE_FLAGS) \
+  -Bpack/dev/$(MCU) \
   -fno-exceptions \
   -fdata-sections \
   -ffunction-sections \
@@ -38,7 +39,7 @@ CFLAGS += \
   -Wextra \
   -Werror \
   -Wfatal-errors \
-	-Wno-implicit-fallthrough \
+  -Wno-implicit-fallthrough \
 
 LDFLAGS += \
   $(CFLAGS) \
@@ -109,7 +110,7 @@ install_toolchain:
 $(BUILD_DIR)/$(TARGET).elf: $(OBJS) $(BUILD_DIR)/$(TARGET).lib
 	@echo Linking $(notdir $@)...
 	@mkdir -p $(dir $@)
-	@$(LD) $(OBJS) -mmcu=$(MCU) -Wl,-Og -Wl,--gc-sections -Wl,--start-group $(BUILD_DIR)/$(TARGET).lib -Wl,--end-group -o $@ -Wl,-Map=$(BUILD_DIR)/$(TARGET).map
+	$(LD) $(OBJS) -Bpack/dev/$(MCU) -mmcu=$(MCU) -Wl,-Og -Wl,--gc-sections -Wl,--start-group $(BUILD_DIR)/$(TARGET).lib -Wl,--end-group -o $@ -Wl,-Map=$(BUILD_DIR)/$(TARGET).map
 
 $(BUILD_DIR)/$(TARGET).hex: $(BUILD_DIR)/$(TARGET).elf
 	@echo Creating $(notdir $@)...
