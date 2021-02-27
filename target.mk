@@ -11,7 +11,6 @@ AVRDUDE_PROGRAMMER_TYPE := dragon_isp
 AVRDUDE_PROGRAMMER_ARGS :=
 DWDEBUG_TOOL := ttyUSB0
 
-# This almost certainly doesn't work with megaavr 0-series
 EFUSE := 0xFD
 HFUSE := 0x9E
 LFUSE := 0xE2
@@ -19,7 +18,7 @@ LFUSE := 0xE2
 DEFINES := \
 	F_CPU=8000000UL \
 
-include tools/avr-gcc-tools/defaults.mk
+include tools/defaults.mk
 
 INC_DIRS := \
 
@@ -33,4 +32,5 @@ SRC_DIRS := \
 
 include lib_tiny.mk
 
-include tools/avr-gcc-tools/tools.mk
+include tools/tools.mk
+include docs.mk
