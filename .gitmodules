@@ -1,3 +1,6 @@
 [submodule "lib/tiny"]
 	path = lib/tiny
 	url = https://github.com/ryanplusplus/tiny
+[submodule "tools/avr-gcc-tools"]
+	path = tools/avr-gcc-tools
+	url = https://github.com/ryanplusplus/avr-gcc-tools
