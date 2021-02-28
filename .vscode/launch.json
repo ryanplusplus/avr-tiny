@@ -5,7 +5,7 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Target (avarice avr dragon)",
+      "name": "UPDI (Atmel ICE)",
       "type": "cortex-debug",
       "cwd": "${workspaceRoot}",
       "executable": "./build/tiny.elf",
@@ -14,28 +14,13 @@
       "configFiles": [
         ""
       ],
-      "serverpath": "./build/debug-server-avarice-dragon",
+      "serverpath": "./build/debug-server-avarice-updi-ice",
       "toolchainPrefix": "avr",
       "preLaunchTask": "debug-deps",
       "runToMain": true
     },
     {
-      "name": "Target (avarice atmel ice)",
-      "type": "cortex-debug",
-      "cwd": "${workspaceRoot}",
-      "executable": "./build/tiny.elf",
-      "request": "launch",
-      "servertype": "openocd",
-      "configFiles": [
-        ""
-      ],
-      "serverpath": "./build/debug-server-avarice-ice",
-      "toolchainPrefix": "avr",
-      "preLaunchTask": "debug-deps",
-      "runToMain": true
-    },
-    {
-      "name": "Target (dwdebug)",
+      "name": "DebugWIRE (dwdebug)",
       "type": "cortex-debug",
       "cwd": "${workspaceRoot}",
       "executable": "./build/tiny.elf",

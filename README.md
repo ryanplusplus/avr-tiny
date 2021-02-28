@@ -1,5 +1,9 @@
 # avr-tiny
 ## Setup
+Build from source:
+- https://github.com/facchinm/avrdude
+- https://github.com/Florin-Popescu/avarice/
+
 ```shell
 make -f target.mk install_toolchain
 ```
