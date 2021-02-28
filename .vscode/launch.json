@@ -5,7 +5,7 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Target (avarice)",
+      "name": "Target (avarice avr dragon)",
       "type": "cortex-debug",
       "cwd": "${workspaceRoot}",
       "executable": "./build/tiny.elf",
@@ -14,7 +14,22 @@
       "configFiles": [
         ""
       ],
-      "serverpath": "./build/debug-server-avarice",
+      "serverpath": "./build/debug-server-avarice-dragon",
+      "toolchainPrefix": "avr",
+      "preLaunchTask": "debug-deps",
+      "runToMain": true
+    },
+    {
+      "name": "Target (avarice atmel ice)",
+      "type": "cortex-debug",
+      "cwd": "${workspaceRoot}",
+      "executable": "./build/tiny.elf",
+      "request": "launch",
+      "servertype": "openocd",
+      "configFiles": [
+        ""
+      ],
+      "serverpath": "./build/debug-server-avarice-ice",
       "toolchainPrefix": "avr",
       "preLaunchTask": "debug-deps",
       "runToMain": true
