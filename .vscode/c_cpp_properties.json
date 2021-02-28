@@ -7,7 +7,9 @@
       ],
       "compilerPath": "/usr/bin/avr-gcc",
       "includePath": [
-        "${workspaceFolder}/**"
+        "${workspaceFolder}/tools/dfp/Atmel.ATmega_DFP.1.6.364/include",
+        "${workspaceFolder}/src",
+        "${workspaceFolder}/src/hardware/atmega328p"
       ],
       "intelliSenseMode": "gcc-x64",
       "cStandard": "c11",
@@ -20,8 +22,24 @@
       ],
       "compilerPath": "/usr/bin/avr-gcc",
       "includePath": [
-        "${workspaceFolder}/dfp/Atmel.ATmega_DFP.1.6.364/include",
-        "${workspaceFolder}/**"
+        "${workspaceFolder}/tools/dfp/Atmel.ATmega_DFP.1.6.364/include",
+        "${workspaceFolder}/src",
+        "${workspaceFolder}/src/hardware/atmega4809"
+      ],
+      "intelliSenseMode": "gcc-x64",
+      "cStandard": "c11",
+      "cppStandard": "c++17"
+    },
+    {
+      "name": "ATtiny85",
+      "defines": [
+        "__AVR_DEV_LIB_NAME__=m4809"
+      ],
+      "compilerPath": "/usr/bin/avr-gcc",
+      "includePath": [
+        "${workspaceFolder}/tools/dfp/Atmel.ATmega_DFP.1.6.364/include",
+        "${workspaceFolder}/src",
+        "${workspaceFolder}/src/hardware/attiny85"
       ],
       "intelliSenseMode": "gcc-x64",
       "cStandard": "c11",

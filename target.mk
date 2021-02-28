@@ -29,7 +29,7 @@ SRC_FILES := \
 
 SRC_DIRS := \
   src \
-  src/hardware \
+  src/hardware/$(MCU) \
 
 include lib_tiny.mk
 
