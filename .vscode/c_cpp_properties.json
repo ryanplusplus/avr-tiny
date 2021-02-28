@@ -7,6 +7,7 @@
       ],
       "compilerPath": "/usr/bin/avr-gcc",
       "includePath": [
+        "${workspaceFolder}/lib/tiny/include",
         "${workspaceFolder}/tools/dfp/Atmel.ATmega_DFP.1.6.364/include",
         "${workspaceFolder}/src",
         "${workspaceFolder}/src/hardware/atmega328p"
@@ -22,6 +23,7 @@
       ],
       "compilerPath": "/usr/bin/avr-gcc",
       "includePath": [
+        "${workspaceFolder}/lib/tiny/include",
         "${workspaceFolder}/tools/dfp/Atmel.ATmega_DFP.1.6.364/include",
         "${workspaceFolder}/src",
         "${workspaceFolder}/src/hardware/atmega4809"
@@ -33,10 +35,11 @@
     {
       "name": "ATtiny85",
       "defines": [
-        "__AVR_DEV_LIB_NAME__=m4809"
+        "__AVR_ATtiny85__"
       ],
       "compilerPath": "/usr/bin/avr-gcc",
       "includePath": [
+        "${workspaceFolder}/lib/tiny/include",
         "${workspaceFolder}/tools/dfp/Atmel.ATmega_DFP.1.6.364/include",
         "${workspaceFolder}/src",
         "${workspaceFolder}/src/hardware/attiny85"

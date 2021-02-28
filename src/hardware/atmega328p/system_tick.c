@@ -5,7 +5,7 @@
 
 #include <avr/io.h>
 #include <avr/interrupt.h>
-#include "timer0_system_tick.h"
+#include "system_tick.h"
 
 static volatile tiny_time_source_ticks_t current_ticks;
 
@@ -31,7 +31,7 @@ static tiny_time_source_ticks_t ticks(i_tiny_time_source_t* self)
 
 static const i_tiny_time_source_api_t api = { ticks };
 
-i_tiny_time_source_t* timer0_system_tick_init(void)
+i_tiny_time_source_t* system_tick_init(void)
 {
   static i_tiny_time_source_t instance = { &api };
 
