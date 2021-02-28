@@ -13,7 +13,7 @@ DWDEBUG_TOOL := ttyUSB0
 
 FUSES := \
   efuse=0xFF \
-  hfuse=0x9D \
+  hfuse=0x9C \
   lfuse=0xE2 \
 
 DEFINES := \
