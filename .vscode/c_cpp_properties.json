@@ -17,16 +17,16 @@
       "cppStandard": "c++17"
     },
     {
-      "name": "ATmega4809",
+      "name": "ATmega4808",
       "defines": [
-        "__AVR_DEV_LIB_NAME__=m4809"
+        "__AVR_DEV_LIB_NAME__=m4808"
       ],
       "compilerPath": "/usr/bin/avr-gcc",
       "includePath": [
         "${workspaceFolder}/lib/tiny/include",
         "${workspaceFolder}/tools/dfp/Atmel.ATmega_DFP.1.6.364/include",
         "${workspaceFolder}/src",
-        "${workspaceFolder}/src/hardware/atmega4809"
+        "${workspaceFolder}/src/hardware/atmega4808"
       ],
       "intelliSenseMode": "gcc-x64",
       "cStandard": "c11",
