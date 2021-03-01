@@ -6,10 +6,10 @@ MCU := atmega328p
 DEVICE_PACK := Atmel.ATmega_DFP.1.6.364
 
 # dwdebug or avrdude
-UPLOAD_TYPE := avrdude
+UPLOAD_TYPE := dwdebug
 AVRDUDE_PROGRAMMER_TYPE := atmelice_isp
 AVRDUDE_PROGRAMMER_ARGS :=
-DWDEBUG_TOOL := ttyUSB0
+DWDEBUG_DEVICE := ttyUSB0
 
 FUSES := \
   efuse=0xFD \

@@ -9,6 +9,7 @@
 #include "heartbeat.h"
 #include "tiny_timer.h"
 #include "watchdog.h"
+#include "clock.h"
 
 int main(void)
 {
@@ -16,6 +17,7 @@ int main(void)
 
   cli();
   {
+    clock_init();
     tiny_timer_group_init(&timer_group, system_tick_init());
     watchdog_init(&timer_group, WDTO_500MS);
     heartbeat_init(&timer_group);
