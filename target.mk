@@ -1,13 +1,13 @@
 TARGET := tiny
 BUILD_DIR := ./build
 
-MCU := atmega328p
+MCU := atmega4808
 
 DEVICE_PACK := Atmel.ATmega_DFP.1.6.364
 
 # dwdebug or avrdude
-UPLOAD_TYPE := dwdebug
-AVRDUDE_PROGRAMMER_TYPE := atmelice_isp
+UPLOAD_TYPE := avrdude
+AVRDUDE_PROGRAMMER_TYPE := atmelice_updi
 AVRDUDE_PROGRAMMER_ARGS :=
 DWDEBUG_DEVICE := ttyUSB0
 
@@ -17,7 +17,7 @@ FUSES := \
   lfuse=0xE2 \
 
 DEFINES := \
-  F_CPU=8000000UL \
+  F_CPU=20000000UL \
 
 include tools/defaults.mk
 
