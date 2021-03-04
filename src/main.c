@@ -19,7 +19,7 @@ int main(void)
   {
     clock_init();
     tiny_timer_group_init(&timer_group, system_tick_init());
-    watchdog_init(&timer_group, WDTO_500MS);
+    watchdog_init(&timer_group);
     heartbeat_init(&timer_group);
   }
   sei();
