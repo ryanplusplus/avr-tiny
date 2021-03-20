@@ -1,0 +1,13 @@
+/*!
+ * @file
+ * @brief
+ */
+
+#ifndef cstring
+#define cstring
+
+extern "C" {
+#include <string.h>
+}
+
+#endif

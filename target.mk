@@ -52,6 +52,7 @@ SRC_DIRS := \
   src/hardware/$(MCU) \
 
 include lib_tiny.mk
+include lib_tiny_cpp.mk
 
 include tools/tools.mk
 include docs.mk

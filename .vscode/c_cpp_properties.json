@@ -7,6 +7,7 @@
       ],
       "compilerPath": "/usr/bin/avr-gcc",
       "includePath": [
+        "${workspaceFolder}/lib/cpp/include",
         "${workspaceFolder}/lib/tiny/include",
         "${workspaceFolder}/tools/dfp/Atmel.ATmega_DFP.1.6.364/include",
         "${workspaceFolder}/src",
@@ -23,6 +24,7 @@
       ],
       "compilerPath": "/usr/bin/avr-gcc",
       "includePath": [
+        "${workspaceFolder}/lib/cpp/include",
         "${workspaceFolder}/lib/tiny/include",
         "${workspaceFolder}/tools/dfp/Atmel.ATmega_DFP.1.6.364/include",
         "${workspaceFolder}/src",
@@ -39,6 +41,7 @@
       ],
       "compilerPath": "/usr/bin/avr-gcc",
       "includePath": [
+        "${workspaceFolder}/lib/cpp/include",
         "${workspaceFolder}/lib/tiny/include",
         "${workspaceFolder}/tools/dfp/Atmel.ATmega_DFP.1.6.364/include",
         "${workspaceFolder}/src",

@@ -1,0 +1,13 @@
+/*!
+ * @file
+ * @brief
+ */
+
+#ifndef cstdbool
+#define cstdbool
+
+extern "C" {
+#include <stdbool.h>
+}
+
+#endif
