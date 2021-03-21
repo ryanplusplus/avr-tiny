@@ -9,9 +9,11 @@
       "includePath": [
         "${workspaceFolder}/lib/cpp/include",
         "${workspaceFolder}/lib/tiny/include",
+        "${workspaceFolder}/lib/tiny_cpp/include",
         "${workspaceFolder}/tools/dfp/Atmel.ATmega_DFP.1.6.364/include",
         "${workspaceFolder}/src",
-        "${workspaceFolder}/src/hardware/atmega328p"
+        "${workspaceFolder}/src/hardware/atmega328p",
+        "${workspaceFolder}/src/hardware/common"
       ],
       "intelliSenseMode": "gcc-x64",
       "cStandard": "c11",
@@ -26,9 +28,11 @@
       "includePath": [
         "${workspaceFolder}/lib/cpp/include",
         "${workspaceFolder}/lib/tiny/include",
+        "${workspaceFolder}/lib/tiny_cpp/include",
         "${workspaceFolder}/tools/dfp/Atmel.ATmega_DFP.1.6.364/include",
         "${workspaceFolder}/src",
-        "${workspaceFolder}/src/hardware/atmega4808"
+        "${workspaceFolder}/src/hardware/atmega4808",
+        "${workspaceFolder}/src/hardware/common"
       ],
       "intelliSenseMode": "gcc-x64",
       "cStandard": "c11",
@@ -43,9 +47,11 @@
       "includePath": [
         "${workspaceFolder}/lib/cpp/include",
         "${workspaceFolder}/lib/tiny/include",
+        "${workspaceFolder}/lib/tiny_cpp/include",
         "${workspaceFolder}/tools/dfp/Atmel.ATmega_DFP.1.6.364/include",
         "${workspaceFolder}/src",
-        "${workspaceFolder}/src/hardware/attiny85"
+        "${workspaceFolder}/src/hardware/attiny85",
+        "${workspaceFolder}/src/hardware/common"
       ],
       "intelliSenseMode": "gcc-x64",
       "cStandard": "c11",

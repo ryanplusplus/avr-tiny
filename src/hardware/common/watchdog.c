@@ -3,6 +3,7 @@
  * @brief
  */
 
+#include <avr/wdt.h>
 #include "watchdog.h"
 
 enum {

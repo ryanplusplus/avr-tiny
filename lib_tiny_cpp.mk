@@ -3,6 +3,9 @@ LIBS := tiny_cpp $(LIBS)
 INC_DIRS += \
   lib/tiny_cpp/include \
 
+SYS_INC_DIRS += \
+  lib/cpp/include \
+
 tiny_cpp_LIB_ROOT := lib/tiny_cpp
 
 tiny_cpp_ASFLAGS := $(ASFLAGS)
