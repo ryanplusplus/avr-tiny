@@ -3,7 +3,6 @@
  * @brief
  */
 
-#include <stddef.h>
 #include <avr/interrupt.h>
 #include "system_tick.h"
 #include "heartbeat.h"
@@ -24,7 +23,7 @@ int main(void)
   }
   sei();
 
-  while(true) {
+  while(1) {
     tiny_timer_group_run(&timer_group);
   }
 }

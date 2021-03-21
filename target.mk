@@ -2,7 +2,7 @@ TARGET := tiny
 BUILD_DIR := ./build
 
 MCU := atmega328p
-FRAMEWORK := C++
+FRAMEWORK := tiny.cpp
 
 DEVICE_PACK := Atmel.ATmega_DFP.1.6.364
 
@@ -38,28 +38,22 @@ FUSES := \
 
 endif
 
-DEFINES += \
-
 include tools/defaults.mk
 
 CXXFLAGS += \
   -Wno-effc++ \
 
-INC_DIRS := \
-
-SYS_INC_DIRS := \
-
 SRC_DIRS := \
   src/hardware/common \
   src/hardware/$(MCU) \
 
-ifeq ($(FRAMEWORK),C)
+ifeq ($(FRAMEWORK),tiny)
 SRC_FILES := \
   src/main.c \
 
 endif
 
-ifeq ($(FRAMEWORK),C++)
+ifeq ($(FRAMEWORK),tiny.cpp)
 SRC_FILES := \
   src/main.cpp \
 

@@ -3,12 +3,8 @@
  * @brief
  */
 
-extern "C" {
-#include <stddef.h>
 #include <avr/interrupt.h>
-#include "clock.h"
-}
-
+#include "Clock.hpp"
 #include "SystemTick.hpp"
 #include "Watchdog.hpp"
 #include "Heartbeat.hpp"
@@ -20,7 +16,7 @@ int main(void)
 {
   cli();
 
-  clock_init();
+  Clock::init();
   SystemTick system_tick{};
   TimerGroup timer_group{ system_tick };
   Watchdog watchdog{ timer_group };
@@ -28,7 +24,7 @@ int main(void)
 
   sei();
 
-  while(true) {
+  while(1) {
     timer_group.run();
   }
 }
