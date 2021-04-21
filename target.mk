@@ -2,7 +2,7 @@ TARGET := tiny
 BUILD_DIR := ./build
 
 MCU := atmega328p
-FRAMEWORK := tiny.cpp
+FRAMEWORK := tiny
 
 DEVICE_PACK := Atmel.ATmega_DFP.1.6.364
 
