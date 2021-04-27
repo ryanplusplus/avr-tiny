@@ -18,7 +18,7 @@ tiny_INC_DIRS := \
 
 tiny_SYS_INC_DIRS := \
 
-tiny_LIB_FILES := \
+tiny_SRC_FILES := \
 
-tiny_LIB_DIRS := \
+tiny_SRC_DIRS := \
   lib/tiny/src \
