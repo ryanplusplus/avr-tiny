@@ -14,8 +14,8 @@ namespace std {
   };
 
   template <>
-  struct numeric_limits<uint16_t> {
-    static uint16_t max()
+  struct numeric_limits<uint32_t> {
+    static uint32_t max()
     {
       return 0xFFFF;
     }
