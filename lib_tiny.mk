@@ -10,9 +10,6 @@ tiny_CPPFLAGS := $(CPPFLAGS)
 tiny_CFLAGS := $(CFLAGS)
 tiny_CXXFLAGS := $(CXXFLAGS)
 
-tiny_CPPFLAGS += \
-  -Wno-implicit-fallthrough \
-
 tiny_INC_DIRS := \
   lib/tiny/include \
 

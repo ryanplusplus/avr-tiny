@@ -13,8 +13,6 @@ tiny_cpp_CPPFLAGS := $(CPPFLAGS)
 tiny_cpp_CFLAGS := $(CFLAGS)
 tiny_cpp_CXXFLAGS := $(CXXFLAGS)
 
-tiny_cpp_CPPFLAGS += \
-
 tiny_cpp_INC_DIRS := \
   lib/tiny_cpp/include \
 
