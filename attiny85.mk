@@ -1,10 +1,6 @@
-TARGET := tiny
-BUILD_DIR := ./build
-
-MCU := atmega328p
+TARGET := attiny85
+MCU := attiny85
 FRAMEWORK := tiny
-
-DEVICE_PACK := Atmel.ATmega_DFP.1.6.364
 
 # dwdebug or avrdude
 UPLOAD_TYPE := dwdebug
@@ -12,16 +8,6 @@ AVRDUDE_PROGRAMMER_TYPE := atmelice_isp
 AVRDUDE_PROGRAMMER_ARGS :=
 DWDEBUG_DEVICE := ttyUSB0
 
-ifeq ($(MCU),atmega328p)
-DEFINES := \
-  F_CPU=8000000UL \
-
-FUSES := \
-  efuse=0xFD \
-  hfuse=0x9E \
-  lfuse=0xE2 \
-
-else ifeq ($(MCU),attiny85)
 DEFINES := \
   F_CPU=8000000UL \
 
@@ -30,13 +16,9 @@ FUSES := \
   hfuse=0x9C \
   lfuse=0xE2 \
 
-else ifeq ($(MCU),atmega4808)
-DEFINES := \
-  F_CPU=20000000UL \
+BUILD_DIR := ./build/$(TARGET)
 
-FUSES := \
-
-endif
+DEVICE_PACK := Atmel.ATmega_DFP.1.6.364
 
 include tools/defaults.mk
 

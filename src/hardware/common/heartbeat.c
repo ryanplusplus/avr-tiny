@@ -9,8 +9,7 @@
 #include "heartbeat_led.h"
 
 enum {
-  half_period_in_msec = 500,
-  pin_5 = _BV(5)
+  half_period_in_msec = 500
 };
 
 static tiny_timer_t timer;
