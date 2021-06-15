@@ -5,37 +5,75 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "UPDI (Atmel ICE)",
+      "name": "ATmega4808 UPDI (Atmel ICE)",
       "type": "cortex-debug",
       "cwd": "${workspaceRoot}",
-      "executable": "./build/tiny.elf",
+      "executable": "./build/atmega4808/atmega4808.elf",
       "request": "launch",
       "servertype": "openocd",
       "configFiles": [
         ""
       ],
-      "serverpath": "./build/debug-server-avarice-updi-ice",
+      "serverpath": "./build/atmega4808/debug-server-avarice-updi-ice",
       "toolchainPrefix": "avr",
-      "preLaunchTask": "debug-deps",
+      "preLaunchTask": "atmega4808-debug-deps",
       "runToMain": true
     },
     {
-      "name": "DebugWIRE (dwdebug)",
+      "name": "ATmega328p DebugWIRE (dwdebug)",
       "type": "cortex-debug",
       "cwd": "${workspaceRoot}",
-      "executable": "./build/tiny.elf",
+      "executable": "./build/attiny328p/atmega328p.elf",
       "request": "launch",
       "servertype": "openocd",
       "configFiles": [
         ""
       ],
-      "serverpath": "./build/debug-server-dwdebug",
+      "serverpath": "./build/atmega328p/debug-server-dwdebug",
       "overrideLaunchCommands": [
-        "file ./build/tiny.elf",
+        "file ./build/attiny328p/atmega328p.elf",
         "load"
       ],
       "toolchainPrefix": "avr",
-      "preLaunchTask": "debug-deps",
+      "preLaunchTask": "atmega328p-debug-deps",
+      "runToMain": true
+    },
+    {
+      "name": "ATtiny85 DebugWIRE (dwdebug)",
+      "type": "cortex-debug",
+      "cwd": "${workspaceRoot}",
+      "executable": "./build/attiny85/attiny85.elf",
+      "request": "launch",
+      "servertype": "openocd",
+      "configFiles": [
+        ""
+      ],
+      "serverpath": "./build/attiny85/debug-server-dwdebug",
+      "overrideLaunchCommands": [
+        "file ./build/attiny85/attiny85.elf",
+        "load"
+      ],
+      "toolchainPrefix": "avr",
+      "preLaunchTask": "attiny85-debug-deps",
+      "runToMain": true
+    },
+    {
+      "name": "ATtiny88 DebugWIRE (dwdebug)",
+      "type": "cortex-debug",
+      "cwd": "${workspaceRoot}",
+      "executable": "./build/attiny88/attiny88.elf",
+      "request": "launch",
+      "servertype": "openocd",
+      "configFiles": [
+        ""
+      ],
+      "serverpath": "./build/attiny88/debug-server-dwdebug",
+      "overrideLaunchCommands": [
+        "file ./build/attiny88/attiny88.elf",
+        "load"
+      ],
+      "toolchainPrefix": "avr",
+      "preLaunchTask": "attiny88-debug-deps",
       "runToMain": true
     }
   ]
