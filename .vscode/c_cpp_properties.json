@@ -56,6 +56,25 @@
       "intelliSenseMode": "gcc-x64",
       "cStandard": "c11",
       "cppStandard": "c++17"
+    },
+    {
+      "name": "ATtiny88",
+      "defines": [
+        "__AVR_ATtiny88__"
+      ],
+      "compilerPath": "/usr/bin/avr-gcc",
+      "includePath": [
+        "${workspaceFolder}/lib/cpp/include",
+        "${workspaceFolder}/lib/tiny/include",
+        "${workspaceFolder}/lib/tiny_cpp/include",
+        "${workspaceFolder}/tools/dfp/Atmel.ATmega_DFP.1.6.364/include",
+        "${workspaceFolder}/src",
+        "${workspaceFolder}/src/hardware/attiny88",
+        "${workspaceFolder}/src/hardware/common"
+      ],
+      "intelliSenseMode": "gcc-x64",
+      "cStandard": "c11",
+      "cppStandard": "c++17"
     }
   ],
   "version": 4
