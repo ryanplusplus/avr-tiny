@@ -3,7 +3,7 @@ MCU := attiny88
 FRAMEWORK := tiny
 
 # dwdebug or avrdude
-UPLOAD_TYPE := avrdude
+UPLOAD_TYPE := dwdebug
 AVRDUDE_PROGRAMMER_TYPE := atmelice_isp
 AVRDUDE_PROGRAMMER_ARGS :=
 DWDEBUG_DEVICE := ttyUSB0
@@ -11,7 +11,7 @@ DWDEBUG_DEVICE := ttyUSB0
 DEFINES := \
   F_CPU=8000000UL \
 
-# http://eleccelerator.com/fusecalc/fusecalc.php?chip=attiny88&LOW=E2&HIGH=9C&EXTENDED=FF&LOCKBIT=FF
+# http://eleccelerator.com/fusecalc/fusecalc.php?chip=attiny88&LOW=EE&HIGH=9C&EXTENDED=FF&LOCKBIT=FF
 FUSES := \
   lfuse=0xEE \
   hfuse=0x9C \
