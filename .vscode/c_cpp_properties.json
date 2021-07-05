@@ -10,7 +10,7 @@
         "${workspaceFolder}/lib/cpp/include",
         "${workspaceFolder}/lib/tiny/include",
         "${workspaceFolder}/lib/tiny_cpp/include",
-        "${workspaceFolder}/tools/dfp/Atmel.ATmega_DFP.1.6.364/include",
+        "${workspaceFolder}/tools/dfp/Microchip.ATmega_DFP.2.3.126/include",
         "${workspaceFolder}/src",
         "${workspaceFolder}/src/hardware/atmega328p",
         "${workspaceFolder}/src/hardware/common"
@@ -29,7 +29,7 @@
         "${workspaceFolder}/lib/cpp/include",
         "${workspaceFolder}/lib/tiny/include",
         "${workspaceFolder}/lib/tiny_cpp/include",
-        "${workspaceFolder}/tools/dfp/Atmel.ATmega_DFP.1.6.364/include",
+        "${workspaceFolder}/tools/dfp/Microchip.ATmega_DFP.2.3.126/include",
         "${workspaceFolder}/src",
         "${workspaceFolder}/src/hardware/atmega4808",
         "${workspaceFolder}/src/hardware/common"
@@ -48,7 +48,7 @@
         "${workspaceFolder}/lib/cpp/include",
         "${workspaceFolder}/lib/tiny/include",
         "${workspaceFolder}/lib/tiny_cpp/include",
-        "${workspaceFolder}/tools/dfp/Atmel.ATmega_DFP.1.6.364/include",
+        "${workspaceFolder}/tools/dfp/Microchip.ATmega_DFP.2.3.126/include",
         "${workspaceFolder}/src",
         "${workspaceFolder}/src/hardware/attiny85",
         "${workspaceFolder}/src/hardware/common"
@@ -67,7 +67,7 @@
         "${workspaceFolder}/lib/cpp/include",
         "${workspaceFolder}/lib/tiny/include",
         "${workspaceFolder}/lib/tiny_cpp/include",
-        "${workspaceFolder}/tools/dfp/Atmel.ATmega_DFP.1.6.364/include",
+        "${workspaceFolder}/tools/dfp/Microchip.ATmega_DFP.2.3.126/include",
         "${workspaceFolder}/src",
         "${workspaceFolder}/src/hardware/attiny88",
         "${workspaceFolder}/src/hardware/common"

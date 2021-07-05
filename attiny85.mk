@@ -1,6 +1,8 @@
 TARGET := attiny85
 MCU := attiny85
 FRAMEWORK := tiny
+BUILD_DIR := ./build/$(TARGET)
+DEVICE_PACK := Microchip.ATmega_DFP.2.3.126
 
 # dwdebug or avrdude
 UPLOAD_TYPE := dwdebug
@@ -16,10 +18,6 @@ FUSES := \
   lfuse=0xE2 \
   hfuse=0x9C \
   efuse=0xFF \
-
-BUILD_DIR := ./build/$(TARGET)
-
-DEVICE_PACK := Atmel.ATmega_DFP.1.6.364
 
 include tools/defaults.mk
 
