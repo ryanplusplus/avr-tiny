@@ -39,6 +39,25 @@
       "cppStandard": "c++17"
     },
     {
+      "name": "ATtiny416",
+      "defines": [
+        "__AVR_DEV_LIB_NAME__=m4808"
+      ],
+      "compilerPath": "/usr/bin/avr-gcc",
+      "includePath": [
+        "${workspaceFolder}/lib/cpp/include",
+        "${workspaceFolder}/lib/tiny/include",
+        "${workspaceFolder}/lib/tiny_cpp/include",
+        "${workspaceFolder}/tools/dfp/Microchip.ATtiny_DFP.2.7.128/include",
+        "${workspaceFolder}/src",
+        "${workspaceFolder}/src/hardware/attiny416",
+        "${workspaceFolder}/src/hardware/common"
+      ],
+      "intelliSenseMode": "gcc-x64",
+      "cStandard": "c11",
+      "cppStandard": "c++17"
+    },
+    {
       "name": "ATtiny85",
       "defines": [
         "__AVR_ATtiny85__"
