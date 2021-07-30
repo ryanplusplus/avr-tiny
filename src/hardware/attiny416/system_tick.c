@@ -6,6 +6,7 @@
 #include <avr/io.h>
 #include <avr/interrupt.h>
 #include "system_tick.h"
+#include "heartbeat_led.h"
 
 static volatile tiny_time_source_ticks_t current_ticks;
 
@@ -13,6 +14,10 @@ ISR(TCB0_INT_vect)
 {
   TCB0.INTFLAGS = TCB_CAPT_bm;
   current_ticks++;
+
+  if(current_ticks % 100 == 0) {
+    heartbeat_led_toggle();
+  }
 }
 
 static tiny_time_source_ticks_t ticks(i_tiny_time_source_t* self)
