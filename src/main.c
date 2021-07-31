@@ -17,10 +17,9 @@ int main(void)
   cli();
   {
     clock_init();
-    (void)system_tick_init();
-    // tiny_timer_group_init(&timer_group, system_tick_init());
-    // watchdog_init(&timer_group);
-    // heartbeat_init(&timer_group);
+    tiny_timer_group_init(&timer_group, system_tick_init());
+    watchdog_init(&timer_group);
+    heartbeat_init(&timer_group);
   }
   sei();
 
