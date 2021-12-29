@@ -1,23 +1,19 @@
-TARGET := attiny85
-MCU := attiny85
+TARGET := attiny416
+MCU := attiny416
 FRAMEWORK := tiny
 BUILD_DIR := ./build/$(TARGET)
-DEVICE_PACK := Microchip.ATmega_DFP.2.3.126
+DEVICE_PACK := Microchip.ATtiny_DFP.2.7.128
 
 # dwdebug or avrdude
-UPLOAD_TYPE := dwdebug
-AVRDUDE_PROGRAMMER_TYPE := atmelice_isp
+UPLOAD_TYPE := avrdude
+AVRDUDE_PROGRAMMER_TYPE := xplainedmini_updi
 AVRDUDE_PROGRAMMER_ARGS :=
 DWDEBUG_DEVICE := ttyUSB0
 
 DEFINES := \
-  F_CPU=8000000UL \
+  F_CPU=20000000UL \
 
-# http://eleccelerator.com/fusecalc/fusecalc.php?chip=attiny85&LOW=E2&HIGH=9C&EXTENDED=FF&LOCKBIT=FF
 FUSES := \
-  lfuse=0xE2 \
-  hfuse=0x9C \
-  efuse=0xFF \
 
 include tools/defaults.mk
 

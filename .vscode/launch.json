@@ -5,21 +5,6 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "ATmega4808 UPDI (Atmel ICE)",
-      "type": "cortex-debug",
-      "cwd": "${workspaceRoot}",
-      "executable": "./build/atmega4808/atmega4808.elf",
-      "request": "launch",
-      "servertype": "openocd",
-      "configFiles": [
-        ""
-      ],
-      "serverpath": "./build/atmega4808/debug-server-avarice-updi-ice",
-      "toolchainPrefix": "avr",
-      "preLaunchTask": "atmega4808-debug-deps",
-      "runToMain": true
-    },
-    {
       "name": "ATmega328p DebugWIRE (dwdebug)",
       "type": "cortex-debug",
       "cwd": "${workspaceRoot}",
@@ -36,6 +21,36 @@
       ],
       "toolchainPrefix": "avr",
       "preLaunchTask": "atmega328p-debug-deps",
+      "runToMain": true
+    },
+    {
+      "name": "ATmega4808 UPDI (Atmel ICE)",
+      "type": "cortex-debug",
+      "cwd": "${workspaceRoot}",
+      "executable": "./build/atmega4808/atmega4808.elf",
+      "request": "launch",
+      "servertype": "openocd",
+      "configFiles": [
+        ""
+      ],
+      "serverpath": "./build/atmega4808/debug-server-avarice-updi-ice",
+      "toolchainPrefix": "avr",
+      "preLaunchTask": "atmega4808-debug-deps",
+      "runToMain": true
+    },
+    {
+      "name": "ATtiny416 UPDI (mEDBG)",
+      "type": "cortex-debug",
+      "cwd": "${workspaceRoot}",
+      "executable": "./build/attiny416/attiny416.elf",
+      "request": "launch",
+      "servertype": "openocd",
+      "configFiles": [
+        ""
+      ],
+      "serverpath": "./build/attiny416/debug-server-avarice-updi-ice",
+      "toolchainPrefix": "avr",
+      "preLaunchTask": "attiny416-debug-deps",
       "runToMain": true
     },
     {

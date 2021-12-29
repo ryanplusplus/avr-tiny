@@ -6,8 +6,6 @@ INC_DIRS += \
 SYS_INC_DIRS += \
   lib/cpp/include \
 
-tiny_cpp_LIB_ROOT := lib/tiny_cpp
-
 tiny_cpp_ASFLAGS := $(ASFLAGS)
 tiny_cpp_CPPFLAGS := $(CPPFLAGS)
 tiny_cpp_CFLAGS := $(CFLAGS)

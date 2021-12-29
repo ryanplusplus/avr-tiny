@@ -1,6 +1,8 @@
 TARGET := atmega4808
 MCU := atmega4808
 FRAMEWORK := tiny
+BUILD_DIR := ./build/$(TARGET)
+DEVICE_PACK := Microchip.ATmega_DFP.2.3.126
 
 # dwdebug or avrdude
 UPLOAD_TYPE := avrdude
@@ -12,10 +14,6 @@ DEFINES := \
   F_CPU=20000000UL \
 
 FUSES := \
-
-BUILD_DIR := ./build/$(TARGET)
-
-DEVICE_PACK := Atmel.ATmega_DFP.1.6.364
 
 include tools/defaults.mk
 
