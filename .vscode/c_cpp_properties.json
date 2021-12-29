@@ -3,7 +3,8 @@
     {
       "name": "ATmega328p",
       "defines": [
-        "__AVR_ATmega328P__"
+        "__AVR_ATmega328P__",
+        "F_CPU=8000000UL"
       ],
       "compilerPath": "/usr/bin/avr-gcc",
       "includePath": [
@@ -22,7 +23,8 @@
     {
       "name": "ATmega4808",
       "defines": [
-        "__AVR_DEV_LIB_NAME__=m4808"
+        "__AVR_DEV_LIB_NAME__=m4808",
+        "F_CPU=20000000UL"
       ],
       "compilerPath": "/usr/bin/avr-gcc",
       "includePath": [
@@ -41,7 +43,8 @@
     {
       "name": "ATtiny416",
       "defines": [
-        "__AVR_DEV_LIB_NAME__=m4808"
+        "__AVR_DEV_LIB_NAME__=tn416",
+        "F_CPU=20000000UL"
       ],
       "compilerPath": "/usr/bin/avr-gcc",
       "includePath": [
@@ -60,7 +63,8 @@
     {
       "name": "ATtiny85",
       "defines": [
-        "__AVR_ATtiny85__"
+        "__AVR_ATtiny85__",
+        "F_CPU=8000000UL"
       ],
       "compilerPath": "/usr/bin/avr-gcc",
       "includePath": [
@@ -79,7 +83,8 @@
     {
       "name": "ATtiny88",
       "defines": [
-        "__AVR_ATtiny88__"
+        "__AVR_ATtiny88__",
+        "F_CPU=8000000UL"
       ],
       "compilerPath": "/usr/bin/avr-gcc",
       "includePath": [
