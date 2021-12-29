@@ -5,6 +5,7 @@
 
 #include <avr/io.h>
 #include "spi.h"
+#include "tiny_utils.h"
 
 #define SPI_DDR DDRB
 #define SS PINB2
@@ -14,11 +15,13 @@
 
 static void transfer(
   i_tiny_spi_t* self,
-  const uint8_t* write_buffer,
-  uint8_t* read_buffer,
+  const void* _write_buffer,
+  void* _read_buffer,
   uint16_t buffer_size)
 {
   (void)self;
+  reinterpret(write_buffer, _write_buffer, const uint8_t*);
+  reinterpret(read_buffer, _read_buffer, uint8_t*);
 
   for(uint16_t i = 0; i < buffer_size; i++) {
     SPDR = write_buffer ? write_buffer[i] : 0x00;

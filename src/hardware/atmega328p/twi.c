@@ -6,6 +6,7 @@
 #include <stddef.h>
 #include <avr/io.h>
 #include "twi.h"
+#include "tiny_utils.h"
 
 enum {
   write_bit = 0,
@@ -98,9 +99,10 @@ static bool write(
   i_tiny_i2c_t* self,
   uint8_t address,
   bool prepare_for_restart,
-  const uint8_t* buffer,
+  const void* _buffer,
   uint16_t buffer_size)
 {
+  reinterpret(buffer, _buffer, const uint8_t*);
   (void)self;
 
   start();
@@ -125,9 +127,10 @@ static bool read(
   i_tiny_i2c_t* self,
   uint8_t address,
   bool prepare_for_restart,
-  uint8_t* buffer,
+  void* _buffer,
   uint16_t buffer_size)
 {
+  reinterpret(buffer, _buffer, uint8_t*);
   (void)self;
 
   start();

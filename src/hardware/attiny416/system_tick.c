@@ -6,12 +6,18 @@
 #include <avr/io.h>
 #include <avr/interrupt.h>
 #include "system_tick.h"
+#include "heartbeat_led.h"
 
 static volatile tiny_time_source_ticks_t current_ticks;
 
-ISR(TIMER1_COMPA_vect)
+ISR(TCB0_INT_vect)
 {
+  TCB0.INTFLAGS = TCB_CAPT_bm;
   current_ticks++;
+
+  if(current_ticks % 100 == 0) {
+    heartbeat_led_toggle();
+  }
 }
 
 static tiny_time_source_ticks_t ticks(i_tiny_time_source_t* self)
@@ -35,15 +41,16 @@ i_tiny_time_source_t* system_tick_init(void)
 {
   static i_tiny_time_source_t instance = { &api };
 
-  // Clear on compare match
-  // Prescalar 8192
-  TCCR1 |= _BV(CTC1) | _BV(CS10) | _BV(CS11) | _BV(CS12);
+  // TCB0.CTRLB defaults to periodic interrupt mode
 
-  // Compare match 125 (8000000 / 64 / 125 == 1000 Hz)
-  OCR1C = 125;
+  // Set interrupt frequency to 1 KHz
+  TCB0.CCMP = F_CPU / 1000;
 
-  // Enable compare match interrupt
-  TIMSK |= _BV(OCIE1A);
+  // Enable the interrupt
+  TCB0.INTCTRL |= TCB_CAPT_bm;
+
+  // Enable TCB0
+  TCB0.CTRLA |= TCB_ENABLE_bm;
 
   return &instance;
 }

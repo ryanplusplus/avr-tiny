@@ -1,0 +1,13 @@
+/*!
+ * @file
+ * @brief
+ */
+
+#ifndef cstddef
+#define cstddef
+
+extern "C" {
+#include <stddef.h>
+}
+
+#endif

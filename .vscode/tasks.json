@@ -4,9 +4,61 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "debug-deps",
+      "label": "atmega328p-debug-deps",
       "type": "shell",
-      "command": "make -f target.mk debug-deps",
+      "command": "make -f atmega328p.mk debug-deps",
+      "presentation": {
+        "echo": true,
+        "reveal": "silent",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": false,
+        "clear": true
+      }
+    },
+    {
+      "label": "atmega4808-debug-deps",
+      "type": "shell",
+      "command": "make -f atmega4808.mk debug-deps",
+      "presentation": {
+        "echo": true,
+        "reveal": "silent",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": false,
+        "clear": true
+      }
+    },
+    {
+      "label": "attiny416-debug-deps",
+      "type": "shell",
+      "command": "make -f attiny416.mk debug-deps",
+      "presentation": {
+        "echo": true,
+        "reveal": "silent",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": false,
+        "clear": true
+      }
+    },
+    {
+      "label": "attiny85-debug-deps",
+      "type": "shell",
+      "command": "make -f attiny85.mk debug-deps",
+      "presentation": {
+        "echo": true,
+        "reveal": "silent",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": false,
+        "clear": true
+      }
+    },
+    {
+      "label": "attiny88-debug-deps",
+      "type": "shell",
+      "command": "make -f attiny88.mk debug-deps",
       "presentation": {
         "echo": true,
         "reveal": "silent",

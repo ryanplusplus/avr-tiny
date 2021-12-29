@@ -9,7 +9,7 @@
 
 static volatile tiny_time_source_ticks_t current_ticks;
 
-ISR(TIMER1_COMPA_vect)
+ISR(TIMER0_COMPA_vect)
 {
   current_ticks++;
 }
@@ -36,14 +36,14 @@ i_tiny_time_source_t* system_tick_init(void)
   static i_tiny_time_source_t instance = { &api };
 
   // Clear on compare match
-  // Prescalar 8192
-  TCCR1 |= _BV(CTC1) | _BV(CS10) | _BV(CS11) | _BV(CS12);
+  // Prescalar 64
+  TCCR0A = _BV(CTC0) | _BV(CS01) | _BV(CS00);
 
   // Compare match 125 (8000000 / 64 / 125 == 1000 Hz)
-  OCR1C = 125;
+  OCR0A = 125;
 
   // Enable compare match interrupt
-  TIMSK |= _BV(OCIE1A);
+  TIMSK0 |= _BV(OCIE0A);
 
   return &instance;
 }

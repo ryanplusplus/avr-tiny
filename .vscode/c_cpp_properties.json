@@ -3,14 +3,18 @@
     {
       "name": "ATmega328p",
       "defines": [
-        "__AVR_ATmega328P__"
+        "__AVR_ATmega328P__",
+        "F_CPU=8000000UL"
       ],
       "compilerPath": "/usr/bin/avr-gcc",
       "includePath": [
+        "${workspaceFolder}/lib/cpp/include",
         "${workspaceFolder}/lib/tiny/include",
-        "${workspaceFolder}/tools/dfp/Atmel.ATmega_DFP.1.6.364/include",
+        "${workspaceFolder}/lib/tiny_cpp/include",
+        "${workspaceFolder}/tools/dfp/Microchip.ATmega_DFP.2.3.126/include",
         "${workspaceFolder}/src",
-        "${workspaceFolder}/src/hardware/atmega328p"
+        "${workspaceFolder}/src/hardware/atmega328p",
+        "${workspaceFolder}/src/hardware/common"
       ],
       "intelliSenseMode": "gcc-x64",
       "cStandard": "c11",
@@ -19,14 +23,38 @@
     {
       "name": "ATmega4808",
       "defines": [
-        "__AVR_DEV_LIB_NAME__=m4808"
+        "__AVR_DEV_LIB_NAME__=m4808",
+        "F_CPU=20000000UL"
       ],
       "compilerPath": "/usr/bin/avr-gcc",
       "includePath": [
+        "${workspaceFolder}/lib/cpp/include",
         "${workspaceFolder}/lib/tiny/include",
-        "${workspaceFolder}/tools/dfp/Atmel.ATmega_DFP.1.6.364/include",
+        "${workspaceFolder}/lib/tiny_cpp/include",
+        "${workspaceFolder}/tools/dfp/Microchip.ATmega_DFP.2.3.126/include",
         "${workspaceFolder}/src",
-        "${workspaceFolder}/src/hardware/atmega4808"
+        "${workspaceFolder}/src/hardware/atmega4808",
+        "${workspaceFolder}/src/hardware/common"
+      ],
+      "intelliSenseMode": "gcc-x64",
+      "cStandard": "c11",
+      "cppStandard": "c++17"
+    },
+    {
+      "name": "ATtiny416",
+      "defines": [
+        "__AVR_DEV_LIB_NAME__=tn416",
+        "F_CPU=20000000UL"
+      ],
+      "compilerPath": "/usr/bin/avr-gcc",
+      "includePath": [
+        "${workspaceFolder}/lib/cpp/include",
+        "${workspaceFolder}/lib/tiny/include",
+        "${workspaceFolder}/lib/tiny_cpp/include",
+        "${workspaceFolder}/tools/dfp/Microchip.ATtiny_DFP.2.7.128/include",
+        "${workspaceFolder}/src",
+        "${workspaceFolder}/src/hardware/attiny416",
+        "${workspaceFolder}/src/hardware/common"
       ],
       "intelliSenseMode": "gcc-x64",
       "cStandard": "c11",
@@ -35,14 +63,38 @@
     {
       "name": "ATtiny85",
       "defines": [
-        "__AVR_ATtiny85__"
+        "__AVR_ATtiny85__",
+        "F_CPU=8000000UL"
       ],
       "compilerPath": "/usr/bin/avr-gcc",
       "includePath": [
+        "${workspaceFolder}/lib/cpp/include",
         "${workspaceFolder}/lib/tiny/include",
-        "${workspaceFolder}/tools/dfp/Atmel.ATmega_DFP.1.6.364/include",
+        "${workspaceFolder}/lib/tiny_cpp/include",
+        "${workspaceFolder}/tools/dfp/Microchip.ATmega_DFP.2.3.126/include",
         "${workspaceFolder}/src",
-        "${workspaceFolder}/src/hardware/attiny85"
+        "${workspaceFolder}/src/hardware/attiny85",
+        "${workspaceFolder}/src/hardware/common"
+      ],
+      "intelliSenseMode": "gcc-x64",
+      "cStandard": "c11",
+      "cppStandard": "c++17"
+    },
+    {
+      "name": "ATtiny88",
+      "defines": [
+        "__AVR_ATtiny88__",
+        "F_CPU=8000000UL"
+      ],
+      "compilerPath": "/usr/bin/avr-gcc",
+      "includePath": [
+        "${workspaceFolder}/lib/cpp/include",
+        "${workspaceFolder}/lib/tiny/include",
+        "${workspaceFolder}/lib/tiny_cpp/include",
+        "${workspaceFolder}/tools/dfp/Microchip.ATmega_DFP.2.3.126/include",
+        "${workspaceFolder}/src",
+        "${workspaceFolder}/src/hardware/attiny88",
+        "${workspaceFolder}/src/hardware/common"
       ],
       "intelliSenseMode": "gcc-x64",
       "cStandard": "c11",
