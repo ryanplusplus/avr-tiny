@@ -13,11 +13,11 @@ DWDEBUG_DEVICE := ttyUSB0
 DEFINES := \
   F_CPU=8000000UL \
 
-# http://eleccelerator.com/fusecalc/fusecalc.php?chip=atmega328p&LOW=E2&HIGH=9E&EXTENDED=FD&LOCKBIT=FF
+# http://eleccelerator.com/fusecalc/fusecalc.php?chip=atmega328p&LOW=E2&HIGH=9E&EXTENDED=FF&LOCKBIT=FF
 FUSES := \
   lfuse=0xE2 \
   hfuse=0x9E \
-  efuse=0xFD \
+  efuse=0xFF \
 
 include tools/defaults.mk
 
