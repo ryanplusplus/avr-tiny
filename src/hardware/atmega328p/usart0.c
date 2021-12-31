@@ -46,6 +46,9 @@ static const i_tiny_uart_api_t api = { send, on_send_complete, on_receive };
 
 static inline void initialize_usart(uint16_t baud)
 {
+  // Enable USART0 clock
+  PRR &= ~_BV(PRUSART0);
+
   // Enable RX, TX, and corresponding interrupts
   UCSR0B = _BV(RXCIE0) | _BV(TXCIE0) | _BV(RXEN0) | _BV(TXEN0);
 

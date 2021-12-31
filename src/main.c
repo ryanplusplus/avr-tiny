@@ -24,6 +24,8 @@ int main(void)
   interrupts_enable();
 
   while(1) {
-    tiny_timer_group_run(&timer_group);
+    if(tiny_timer_group_run(&timer_group)) {
+      interrupts_wait_for_interrupt();
+    }
   }
 }

@@ -39,6 +39,9 @@ i_tiny_spi_t* spi_init(
   bool msb_first,
   spi_baud_t baud)
 {
+  // Enable SPI clock
+  PRR &= ~_BV(PRSPI);
+
   // Set SS, MOSI, and SCK as outputs
   // SS must be configured as an output to make sure that
   // the SPI peripheral doesn't switch to slave mode

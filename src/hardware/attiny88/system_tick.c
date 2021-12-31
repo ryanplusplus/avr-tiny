@@ -35,6 +35,9 @@ i_tiny_time_source_t* system_tick_init(void)
 {
   static i_tiny_time_source_t instance = { &api };
 
+  // Enable TIMER0 clock
+  PRR &= ~_BV(PRTIM0);
+
   // Clear on compare match
   // Prescalar 64
   TCCR0A = _BV(CTC0) | _BV(CS01) | _BV(CS00);

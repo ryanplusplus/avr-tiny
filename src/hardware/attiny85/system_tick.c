@@ -35,6 +35,9 @@ i_tiny_time_source_t* system_tick_init(void)
 {
   static i_tiny_time_source_t instance = { &api };
 
+  // Enable TIMER1 clock
+  PRR &= ~_BV(PRTIM1);
+
   // Clear on compare match
   // Prescalar 8192
   TCCR1 |= _BV(CTC1) | _BV(CS10) | _BV(CS11) | _BV(CS12);

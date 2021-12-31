@@ -161,6 +161,9 @@ static const i_tiny_i2c_api_t api = { write, read, reset };
 
 i_tiny_i2c_t* twi_init(void)
 {
+  // Enable TWI clock
+  PRR &= ~_BV(PRTWI);
+
   reset(NULL);
 
   static i_tiny_i2c_t self;

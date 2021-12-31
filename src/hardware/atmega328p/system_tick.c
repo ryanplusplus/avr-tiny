@@ -35,6 +35,9 @@ i_tiny_time_source_t* system_tick_init(void)
 {
   static i_tiny_time_source_t instance = { &api };
 
+  // Enable TIMER 0 clock
+  PRR &= ~_BV(PRTIM0);
+
   // Clear timer on compare match
   TCCR0A = _BV(WGM01);
 
