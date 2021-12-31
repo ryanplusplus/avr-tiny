@@ -39,6 +39,25 @@
       "runToMain": true
     },
     {
+      "name": "ATtiny167 DebugWIRE (dwdebug)",
+      "type": "cortex-debug",
+      "cwd": "${workspaceRoot}",
+      "executable": "./build/attiny167/attiny167.elf",
+      "request": "launch",
+      "servertype": "openocd",
+      "configFiles": [
+        ""
+      ],
+      "serverpath": "./build/attiny167/debug-server-dwdebug",
+      "overrideLaunchCommands": [
+        "file ./build/attiny167/attiny167.elf",
+        "load"
+      ],
+      "toolchainPrefix": "avr",
+      "preLaunchTask": "attiny167-debug-deps",
+      "runToMain": true
+    },
+    {
       "name": "ATtiny416 UPDI (mEDBG)",
       "type": "cortex-debug",
       "cwd": "${workspaceRoot}",
