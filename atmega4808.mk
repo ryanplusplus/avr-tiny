@@ -43,7 +43,7 @@ SRC_DIRS += \
 
 endif
 
-include lib_tiny.mk
+include lib/tiny/lib_tiny.mk
 include lib_tiny_cpp.mk
 
 include tools/tools.mk
