@@ -1,3 +1,5 @@
+include tools/setup.mk
+
 TARGET := attiny416
 MCU := attiny416
 FRAMEWORK := tiny

@@ -1,3 +1,5 @@
+include tools/setup.mk
+
 TARGET := attiny85
 MCU := attiny85
 FRAMEWORK := tiny

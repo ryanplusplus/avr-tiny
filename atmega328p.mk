@@ -1,3 +1,5 @@
+include tools/setup.mk
+
 TARGET := atmega328p
 MCU := atmega328p
 FRAMEWORK := tiny

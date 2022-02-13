@@ -1,3 +1,5 @@
+include tools/setup.mk
+
 TARGET := atmega4808
 MCU := atmega4808
 FRAMEWORK := tiny
