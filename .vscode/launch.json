@@ -8,7 +8,7 @@
       "name": "ATmega328p DebugWIRE (dwdebug)",
       "type": "cortex-debug",
       "cwd": "${workspaceRoot}",
-      "executable": "./build/attiny328p/atmega328p.elf",
+      "executable": "./build/atmega328p/atmega328p.elf",
       "request": "launch",
       "servertype": "openocd",
       "configFiles": [
@@ -16,12 +16,12 @@
       ],
       "serverpath": "./build/atmega328p/debug-server-dwdebug",
       "overrideLaunchCommands": [
-        "file ./build/attiny328p/atmega328p.elf",
+        "file ./build/atmega328p/atmega328p.elf",
         "load"
       ],
       "toolchainPrefix": "avr",
       "preLaunchTask": "atmega328p-debug-deps",
-      "runToMain": true
+      "runToEntryPoint": "main"
     },
     {
       "name": "ATmega4808 UPDI (Atmel ICE)",
@@ -36,7 +36,7 @@
       "serverpath": "./build/atmega4808/debug-server-avarice-updi-ice",
       "toolchainPrefix": "avr",
       "preLaunchTask": "atmega4808-debug-deps",
-      "runToMain": true
+      "runToEntryPoint": "main"
     },
     {
       "name": "ATtiny416 UPDI (mEDBG)",
@@ -51,7 +51,7 @@
       "serverpath": "./build/attiny416/debug-server-avarice-updi-ice",
       "toolchainPrefix": "avr",
       "preLaunchTask": "attiny416-debug-deps",
-      "runToMain": true
+      "runToEntryPoint": "main"
     },
     {
       "name": "ATtiny85 DebugWIRE (dwdebug)",
@@ -70,7 +70,7 @@
       ],
       "toolchainPrefix": "avr",
       "preLaunchTask": "attiny85-debug-deps",
-      "runToMain": true
+      "runToEntryPoint": "main"
     },
     {
       "name": "ATtiny88 DebugWIRE (dwdebug)",
@@ -89,7 +89,7 @@
       ],
       "toolchainPrefix": "avr",
       "preLaunchTask": "attiny88-debug-deps",
-      "runToMain": true
+      "runToEntryPoint": "main"
     }
   ]
 }

@@ -6,7 +6,7 @@
     {
       "label": "atmega328p-debug-deps",
       "type": "shell",
-      "command": "make -f atmega328p.mk debug-deps",
+      "command": "make -j16 -f atmega328p.mk debug-deps",
       "presentation": {
         "echo": true,
         "reveal": "silent",
@@ -19,7 +19,7 @@
     {
       "label": "atmega4808-debug-deps",
       "type": "shell",
-      "command": "make -f atmega4808.mk debug-deps",
+      "command": "make -j16 -f atmega4808.mk debug-deps",
       "presentation": {
         "echo": true,
         "reveal": "silent",
@@ -32,7 +32,7 @@
     {
       "label": "attiny416-debug-deps",
       "type": "shell",
-      "command": "make -f attiny416.mk debug-deps",
+      "command": "make -j16 -f attiny416.mk debug-deps",
       "presentation": {
         "echo": true,
         "reveal": "silent",
@@ -45,7 +45,7 @@
     {
       "label": "attiny85-debug-deps",
       "type": "shell",
-      "command": "make -f attiny85.mk debug-deps",
+      "command": "make -j16 -f attiny85.mk debug-deps",
       "presentation": {
         "echo": true,
         "reveal": "silent",
@@ -58,7 +58,7 @@
     {
       "label": "attiny88-debug-deps",
       "type": "shell",
-      "command": "make -f attiny88.mk debug-deps",
+      "command": "make -j16 -f attiny88.mk debug-deps",
       "presentation": {
         "echo": true,
         "reveal": "silent",
