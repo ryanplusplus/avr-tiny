@@ -1,5 +1,10 @@
 # avr-tiny
 ## Setup
+Install toolchain with `apt`:
+```shell
+sudo apt install avr-libc gdb-avr gcc-avr binutils-avr
+```
+
 Build from source:
 - https://github.com/facchinm/avrdude
 - https://github.com/Florin-Popescu/avarice/
