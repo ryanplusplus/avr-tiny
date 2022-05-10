@@ -26,8 +26,9 @@ static void transfer(
   for(uint16_t i = 0; i < buffer_size; i++) {
     SPDR = write_buffer ? write_buffer[i] : 0x00;
     loop_until_bit_is_set(SPSR, SPIF);
-    if(read_buffer)
+    if(read_buffer) {
       read_buffer[i] = SPDR;
+    }
   }
 }
 
