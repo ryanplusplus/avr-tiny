@@ -8,13 +8,14 @@
 #include "SystemTick.hpp"
 #include "Watchdog.hpp"
 #include "Heartbeat.hpp"
+#include "Interrupts.hpp"
 #include "tiny/Timer.h"
 
 using namespace tiny;
 
 int main(void)
 {
-  cli();
+  Interrupts::disable();
 
   Clock::init();
   SystemTick system_tick{};
@@ -22,7 +23,7 @@ int main(void)
   Watchdog watchdog{ timer_group };
   Heartbeat heartbeat{ timer_group };
 
-  sei();
+  Interrupts::enable();
 
   while(1) {
     timer_group.run();
