@@ -21,6 +21,6 @@ class Interrupts {
   {
     interrupts_disable();
   }
-}
+};
 
 #endif
