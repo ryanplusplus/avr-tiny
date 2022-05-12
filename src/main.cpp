@@ -26,6 +26,8 @@ int main(void)
   Interrupts::enable();
 
   while(1) {
-    timer_group.run();
+    if(timer_group.run()) {
+      Interrupts::wait_for_interrupt();
+    }
   }
 }

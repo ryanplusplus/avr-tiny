@@ -21,6 +21,11 @@ class Interrupts {
   {
     interrupts_disable();
   }
+
+  static auto wait_for_interrupt() -> void
+  {
+    interrupts_wait_for_interrupt();
+  }
 };
 
 #endif
