@@ -41,6 +41,9 @@ SRC_FILES := \
 endif
 
 ifeq ($(FRAMEWORK),tiny.cpp)
+SYS_INC_DIRS += \
+  lib/cpp/include \
+
 SRC_FILES := \
   src/main.cpp \
 
@@ -50,7 +53,9 @@ SRC_DIRS += \
 endif
 
 include lib/tiny/lib_tiny.mk
-include lib_tiny_cpp.mk
+
+tiny_cpp_EXTERNAL_SYS_INC_DIRS:=lib/cpp/include
+include lib/tiny_cpp/lib_tiny_cpp.mk
 
 .PHONY: all
 all: $(BUILD_DIR)/$(TARGET).elf $(BUILD_DIR)/$(TARGET).hex
