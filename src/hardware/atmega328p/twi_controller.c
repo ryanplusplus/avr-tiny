@@ -5,7 +5,7 @@
 
 #include <stddef.h>
 #include <avr/io.h>
-#include "twi.h"
+#include "twi_controller.h"
 #include "tiny_utils.h"
 
 enum {
@@ -159,7 +159,7 @@ static bool read(
 
 static const i_tiny_i2c_api_t api = { write, read, reset };
 
-i_tiny_i2c_t* twi_init(void)
+i_tiny_i2c_t* twi_controller_init(void)
 {
   // Enable TWI clock
   PRR &= ~_BV(PRTWI);
