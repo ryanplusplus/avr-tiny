@@ -20,9 +20,8 @@ class Heartbeat {
     heartbeat_led_init();
 
     timer_group.start_periodic(
-      this->timer, period, (void*)nullptr, +[](void* context, tiny::TimerGroup& timer_group) {
+      this->timer, period, (void*)nullptr, +[](void* context) {
         (void)context;
-        (void)timer_group;
         heartbeat_led_toggle();
       });
   }
