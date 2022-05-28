@@ -12,9 +12,8 @@ enum {
 
 static tiny_timer_t timer;
 
-static void kick(tiny_timer_group_t* timer_group, void* context)
+static void kick(void* context)
 {
-  (void)timer_group;
   (void)context;
   wdt_reset();
 }
