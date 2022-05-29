@@ -2,7 +2,7 @@
 ## Setup
 Install toolchain with `apt`:
 ```shell
-sudo apt install avr-libc gdb-avr gcc-avr binutils-avr
+make -f <target>.mk install_toolchain
 ```
 
 Build from source:
@@ -12,20 +12,20 @@ Build from source:
 ## Use
 ### Compile
 ```shell
-make -f target.mk
+make -f <target>.mk
 ```
 
 ### Clean
 ```shell
-make -f target.mk clean
+make -f <target>.mk clean
 ```
 
 ### Erase via selected tool
 ```shell
-make -f target.mk erase
+make -f <target>.mk erase
 ```
 
 ### Flash via selected tool
 ```shell
-make -f target.mk upload
+make -f <target>.mk upload
 ```
