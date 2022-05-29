@@ -44,10 +44,12 @@ static i_tiny_event_t* on_receive(i_tiny_uart_t* self)
 
 static const i_tiny_uart_api_t api = { send, on_send_complete, on_receive };
 
-static inline void initialize_usart(uint16_t baud)
+static inline void initialize_usart(bool u2x, uint16_t baud)
 {
   // Enable USART0 clock
   PRR &= ~_BV(PRUSART0);
+
+  UCSR0A = _BV(u2x);
 
   // Enable RX, TX, and corresponding interrupts
   UCSR0B = _BV(RXCIE0) | _BV(TXCIE0) | _BV(RXEN0) | _BV(TXEN0);
@@ -60,12 +62,12 @@ static inline void initialize_usart(uint16_t baud)
   UBRR0L = (baud & 0xFF);
 }
 
-i_tiny_uart_t* usart0_init(uint16_t baud)
+i_tiny_uart_t* usart0_init(bool u2x, uint16_t baud)
 {
   tiny_single_subscriber_event_init(&send_complete);
   tiny_single_subscriber_event_init(&receive);
 
-  initialize_usart(baud);
+  initialize_usart(u2x, baud);
 
   self.api = &api;
   return &self;

@@ -4,7 +4,7 @@
  */
 
 #include <avr/io.h>
-#include "spi.h"
+#include "spi_controller.h"
 #include "tiny_utils.h"
 
 #define SPI_DDR DDRB
@@ -34,7 +34,7 @@ static void transfer(
 
 static const i_tiny_spi_api_t api = { transfer };
 
-i_tiny_spi_t* spi_init(
+i_tiny_spi_t* spi_controller_init(
   uint8_t cpol,
   uint8_t cpha,
   bool msb_first,
