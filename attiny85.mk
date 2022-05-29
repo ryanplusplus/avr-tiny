@@ -34,28 +34,10 @@ SRC_DIRS := \
   src/hardware/common \
   src/hardware/$(MCU) \
 
-ifeq ($(FRAMEWORK),tiny)
 SRC_FILES := \
   src/main.c \
 
-endif
-
-ifeq ($(FRAMEWORK),tiny.cpp)
-SYS_INC_DIRS += \
-  lib/cpp/include \
-
-SRC_FILES := \
-  src/main.cpp \
-
-SRC_DIRS += \
-  lib/cpp/src \
-
-endif
-
 include lib/tiny/lib_tiny.mk
-
-tiny_cpp_EXTERNAL_SYS_INC_DIRS:=lib/cpp/include
-include lib/tiny_cpp/lib_tiny_cpp.mk
 
 .PHONY: all
 all: $(BUILD_DIR)/$(TARGET).elf $(BUILD_DIR)/$(TARGET).hex
