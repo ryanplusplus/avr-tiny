@@ -9,6 +9,8 @@
 #include "tiny_timer.h"
 #include "watchdog.h"
 #include "clock.h"
+#include "pb0_neopixel.h"
+#include "tiny_utils.h"
 
 int main(void)
 {
@@ -22,6 +24,18 @@ int main(void)
     heartbeat_init(&timer_group);
   }
   interrupts_enable();
+
+  pb0_neopixel_init();
+
+  interrupts_critical_section({
+    pb0_neopixel_color_t color = { 0, 9, 2 };
+
+    for(uint8_t i = 0; i < 8; i++) {
+      pb0_neopixel_write(&color, 1);
+      color.r -= 1;
+      color.b += 1;
+    }
+  });
 
   while(1) {
     if(tiny_timer_group_run(&timer_group)) {
