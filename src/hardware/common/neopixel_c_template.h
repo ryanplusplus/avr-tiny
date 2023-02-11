@@ -20,7 +20,7 @@ static void send_byte(uint8_t byte)
 {
 #if F_CPU == 8000000UL
   __asm__ __volatile__(
-    "send_byte:\n"
+    "_send_byte:\n"
     "  ldi r16,8\n"
     "\n"
     "send_bit:\n"

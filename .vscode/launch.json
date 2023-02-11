@@ -5,6 +5,24 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "ATmega328p DebugWIRE (bloom)",
+      "type": "cortex-debug",
+      "cwd": "${workspaceRoot}",
+      "executable": "./build/atmega328p/atmega328p.elf",
+      "request": "launch",
+      "servertype": "openocd",
+      "configFiles": [
+        ""
+      ],
+      "serverpath": "./build/atmega328p/debug-server-bloom",
+      "overrideLaunchCommands": [
+        "load"
+      ],
+      "toolchainPrefix": "avr",
+      "preLaunchTask": "atmega328p-debug-deps",
+      "runToEntryPoint": "main"
+    },
+    {
       "name": "ATmega328p DebugWIRE (dwdebug)",
       "type": "cortex-debug",
       "cwd": "${workspaceRoot}",
@@ -24,7 +42,7 @@
       "runToEntryPoint": "main"
     },
     {
-      "name": "ATmega4808 UPDI (Atmel ICE)",
+      "name": "ATmega4808 UPDI (avarice)",
       "type": "cortex-debug",
       "cwd": "${workspaceRoot}",
       "executable": "./build/atmega4808/atmega4808.elf",
@@ -39,7 +57,25 @@
       "runToEntryPoint": "main"
     },
     {
-      "name": "ATtiny416 UPDI (mEDBG)",
+      "name": "ATmega4808 UPDI (bloom)",
+      "type": "cortex-debug",
+      "cwd": "${workspaceRoot}",
+      "executable": "./build/atmega4808/atmega4808.elf",
+      "request": "launch",
+      "servertype": "openocd",
+      "configFiles": [
+        ""
+      ],
+      "serverpath": "./build/atmega4808/debug-server-bloom",
+      "overrideLaunchCommands": [
+        "load"
+      ],
+      "toolchainPrefix": "avr",
+      "preLaunchTask": "atmega4808-debug-deps",
+      "runToEntryPoint": "main"
+    },
+    {
+      "name": "ATtiny416 UPDI (avarice)",
       "type": "cortex-debug",
       "cwd": "${workspaceRoot}",
       "executable": "./build/attiny416/attiny416.elf",
@@ -51,6 +87,43 @@
       "serverpath": "./build/attiny416/debug-server-avarice-updi-ice",
       "toolchainPrefix": "avr",
       "preLaunchTask": "attiny416-debug-deps",
+      "runToEntryPoint": "main"
+    },
+    {
+      "name": "ATtiny416 UPDI (bloom)",
+      "type": "cortex-debug",
+      "cwd": "${workspaceRoot}",
+      "executable": "./build/attiny416/attiny416.elf",
+      "request": "launch",
+      "servertype": "openocd",
+      "configFiles": [
+        ""
+      ],
+      "serverpath": "./build/attiny416/debug-server-bloom",
+      "overrideLaunchCommands": [
+        "load"
+      ],
+      "toolchainPrefix": "avr",
+      "preLaunchTask": "attiny416-debug-deps",
+      "runToEntryPoint": "main"
+    },
+    {
+      "name": "ATtiny85 DebugWIRE (bloom)",
+      "type": "cortex-debug",
+      "cwd": "${workspaceRoot}",
+      "executable": "./build/attiny85/attiny85.elf",
+      "request": "launch",
+      "servertype": "openocd",
+      "configFiles": [
+        ""
+      ],
+      "serverpath": "./build/attiny85/debug-server-bloom",
+      "overrideLaunchCommands": [
+        "load"
+      ],
+      "toolchainPrefix": "avr",
+      "gdbPath": "/usr/bin/avr-gdb",
+      "preLaunchTask": "attiny85-debug-deps",
       "runToEntryPoint": "main"
     },
     {
@@ -70,6 +143,24 @@
       ],
       "toolchainPrefix": "avr",
       "preLaunchTask": "attiny85-debug-deps",
+      "runToEntryPoint": "main"
+    },
+    {
+      "name": "ATtiny88 DebugWIRE (bloom)",
+      "type": "cortex-debug",
+      "cwd": "${workspaceRoot}",
+      "executable": "./build/attiny88/attiny88.elf",
+      "request": "launch",
+      "servertype": "openocd",
+      "configFiles": [
+        ""
+      ],
+      "serverpath": "./build/attiny88/debug-server-bloom",
+      "overrideLaunchCommands": [
+        "load"
+      ],
+      "toolchainPrefix": "avr",
+      "preLaunchTask": "attiny88-debug-deps",
       "runToEntryPoint": "main"
     },
     {

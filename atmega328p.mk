@@ -4,13 +4,16 @@ TARGET := atmega328p
 MCU := atmega328p
 FRAMEWORK ?= tiny
 BUILD_DIR := ./build/$(TARGET)
-DEVICE_PACK := Microchip.ATmega_DFP.2.3.126
+DEVICE_PACK := Microchip.ATmega_DFP.3.0.158
 
 # dwdebug or avrdude
 UPLOAD_TYPE := dwdebug
 AVRDUDE_PROGRAMMER_TYPE := atmelice_isp
 AVRDUDE_PROGRAMMER_ARGS :=
 DWDEBUG_DEVICE := ttyUSB0
+BLOOM_DEBUG_TOOL := atmel-ice
+BLOOM_DEBUG_INTERFACE := debug-wire
+BLOOM_INSIGHT_ENABLED := false
 
 DEFINES := \
   F_CPU=8000000UL \
@@ -31,8 +34,8 @@ CPPFLAGS += \
   -fwhole-program \
 
 SRC_DIRS := \
-  src/hardware/common \
   src/hardware/$(MCU) \
+  src/hardware/common \
 
 SRC_FILES := \
   src/main.c \
