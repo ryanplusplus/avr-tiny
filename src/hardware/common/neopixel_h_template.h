@@ -45,5 +45,5 @@ typedef struct {
 
 void neopixel_concat(neopixel_api_name, _init)(void);
 void neopixel_concat(neopixel_api_name, _write)(const neopixel_concat(neopixel_api_name, _color_t) * data, uint16_t count);
-void neopixel_concat(neopixel_api_name, _write_all)(const neopixel_concat(neopixel_api_name, _color_t) * data, uint16_t count);
+void neopixel_concat(neopixel_api_name, _write_all)(const neopixel_concat(neopixel_api_name, _color_t) data, uint16_t count);
 void neopixel_concat(neopixel_api_name, _reset)(void);

@@ -67,12 +67,12 @@ void neopixel_concat(neopixel_api_name, _write)(const neopixel_concat(neopixel_a
   });
 }
 
-void neopixel_concat(neopixel_api_name, _write_all)(const neopixel_concat(neopixel_api_name, _color_t) * data, uint16_t count)
+void neopixel_concat(neopixel_api_name, _write_all)(const neopixel_concat(neopixel_api_name, _color_t) data, uint16_t count)
 {
   interrupts_critical_section({
     for(uint16_t i = 0; i < count; i++) {
-      for(uint8_t j = 0; j < sizeof(data[0]); j++) {
-        send_byte(((const uint8_t*)data)[j]);
+      for(uint8_t j = 0; j < sizeof(data); j++) {
+        send_byte(((const uint8_t*)&data)[j]);
       }
     }
   });
