@@ -29,9 +29,9 @@ include tools/defaults.mk
 CXXFLAGS += \
   -Wno-effc++ \
 
-CPPFLAGS += \
-  -flto \
-  -fwhole-program \
+# CPPFLAGS += \
+#   -flto \
+#   -fwhole-program \
 
 SRC_DIRS := \
   src/hardware/$(MCU) \
